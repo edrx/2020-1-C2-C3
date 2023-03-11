@@ -1,0 +1,472 @@
+% (find-LATEX "2020-1-C2-miniteste-1.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C2-miniteste-1.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C2-miniteste-1.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C2-miniteste-1.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C2-miniteste-1.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C2-miniteste-1"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C2-miniteste-1.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-miniteste-1.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-miniteste-1.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C2-miniteste-1.pdf
+%               file:///tmp/2020-1-C2-miniteste-1.pdf
+%           file:///tmp/pen/2020-1-C2-miniteste-1.pdf
+% http://angg.twu.net/LATEX/2020-1-C2-miniteste-1.pdf
+% (find-LATEX "2019.mk")
+
+% «.exercicio-1»	(to "exercicio-1")
+% «.exercicio-2»	(to "exercicio-2")
+% «.exercicio-3»	(to "exercicio-3")
+% «.exercicio-4»	(to "exercicio-4")
+% «.miniteste-regras»	(to "miniteste-regras")
+% «.mini-teste»		(to "mini-teste")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+%L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+%L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+\pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+% (find-angg ".emacs" "c2q192")
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2020.1}
+
+\bsk
+
+Exercícios de preparação para o Miniteste 1
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C2.html}
+
+\end{center}
+
+\newpage
+
+% «exercicio-1»  (to ".exercicio-1")
+% (c2m201mt1p 2 "exercicio-1")
+% (c2m201mt1    "exercicio-1")
+% (c2m201tfcsp 2 "formadas-por-segmentos")
+% (c2m201tfcs    "formadas-por-segmentos")
+
+{\bf Exercício 1.}
+
+\ssk
+
+Seja $A$ este polígono:
+
+$$
+ \unitlength=15pt
+ %
+ \vcenter{\hbox{%
+ \beginpicture(0,0)(5,3)
+   \pictgrid%
+   \pictpiecewise{(1,2)c--(3,2)c--(4,1)c--(2,1)c--(1,2)c}%
+   \pictaxes%
+ \end{picture}%
+ }}
+$$
+
+Seja $h$ a função que dá a diferença entre a borda superior e a borda
+inferior de $A$ para cada valor de $x$ em $[1,4]$, e que é 0 para
+$x<1$ e para $4<x$.
+
+\msk
+
+a) Faça o gráfico da função $h$.
+
+b) Dê uma definição por casos para a função $h$.
+
+c) Seja $H(b) = \Intx{0}{b}{h(x)}$. Desenhe o gráfico da $H$.
+
+d) Dê uma definição por casos para $H$.
+
+%\printbibliography
+
+\newpage
+
+% «exercicio-2»  (to ".exercicio-2")
+% (c2m201mt1p 3 "exercicio-2")
+% (c2m201mt1    "exercicio-2")
+
+{\bf Exercício 2.}
+
+\ssk
+
+Agora seja $A$ este polígono:
+
+$$
+ \unitlength=15pt
+ %
+ \vcenter{\hbox{%
+ \beginpicture(0,0)(5,4)
+   \pictgrid%
+   \pictpiecewise{(1,3)c--(1,1)c--(4,1)c--(4,2)c--(3,2)c--(3,3)c--(1,3)c}%
+   \pictaxes%
+ \end{picture}%
+ }}
+$$
+
+Seja $h$ a função que dá a diferença entre a borda superior e a borda
+inferior de $A$ para cada valor de $x$ em $[1,4]$, e que é 0 para
+$x\not∈[1,4]$.
+
+\msk
+
+a) Faça o gráfico da função $h$.
+
+b) Dê uma definição por casos para a função $h$.
+
+c) Seja $H(b) = \Intx{0}{b}{h(x)}$. Desenhe o gráfico da $H$.
+
+d) Dê uma definição por casos para $H$.
+
+
+\newpage
+
+% «exercicio-3»  (to ".exercicio-3")
+% (c2m201mt1p 4 "exercicio-3")
+% (c2m201mt1    "exercicio-3")
+
+{\bf Exercício 3.}
+
+\ssk
+
+Agora seja $A$ este polígono:
+
+$$
+ \unitlength=15pt
+ %
+ \vcenter{\hbox{%
+ \beginpicture(0,0)(5,4)
+   \pictgrid%
+   \pictpiecewise{(1,3)c--(1,1)c--(4,1)c--(4,2)c--(3,2)c--(3,3)c--(1,3)c}%
+   \pictaxes%
+ \end{picture}%
+ }}
+$$
+
+Seja $h$ a função que dá a diferença entre a borda superior e a borda
+inferior de $A$ para cada valor de $x$ em $[1,4]$, e que é 0 para
+$x\not∈[1,4]$.
+
+\msk
+
+a) Faça o gráfico da função $h$.
+
+b) Dê uma definição por casos para a função $h$.
+
+c) Seja $H(b) = \Intx{\ColorRed{2}}{b}{h(x)}$. Desenhe o gráfico da $H$.
+
+d) Dê uma definição por casos para $H$.
+
+
+\newpage
+
+% «exercicio-4»  (to ".exercicio-4")
+% (c2m201mt1p 5 "exercicio-4")
+% (c2m201mt1    "exercicio-4")
+
+{\bf Exercício 4.}
+
+\ssk
+
+Agora seja $A$ este polígono:
+
+$$
+ \unitlength=15pt
+ %
+ \vcenter{\hbox{%
+ \beginpicture(0,0)(6,4)
+   \pictgrid%
+   \pictpiecewise{(1,3)c--(1,1)c--(5,1)c--(5,2)c--(4,2)c--(3,3)c--(1,3)c}%
+   \pictaxes%
+ \end{picture}%
+ }}
+$$
+
+Seja $h$ a função que dá a diferença entre a borda superior e a borda
+inferior de $A$ para cada valor de $x$ em $[1,5]$, e que é 0 para
+$x\not∈[1,5]$.
+
+\msk
+
+a) Faça o gráfico da função $h$.
+
+b) Dê uma definição por casos para a função $h$.
+
+c) Seja $H(b) = \Intx{2}{b}{h(x)}$. Desenhe o gráfico da $H$.
+
+d) Dê uma definição por casos para $H$.
+
+
+
+\newpage
+
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Miniteste 1}
+
+
+\end{center}
+
+\newpage
+
+% «miniteste-regras»  (to ".miniteste-regras")
+% (c2m201mt1p 7 "miniteste-regras")
+% (c2m201mt1    "miniteste-regras")
+
+{\bf Regras:}
+
+As questões do mini-teste serão disponibilizadas às 14:00 da
+quinta-feira 12/nov/2020 e você deverá entregar as respostas
+\ColorRed{escritas à mão} até as 14:00 da sexta-feira 12/nov/2020 na
+plataforma Classroom. Se o Classroom der algum problema mande também
+para este endereço de e-mail:
+
+\ssk
+
+\ColorRed{eduardoochs@gmail.com}
+
+\ssk
+
+Mini-testes entregues após este horário não serão considerados.
+
+Durante as 24 horas do mini-teste nem o professor nem o monitor
+responderão perguntas sobre os assuntos do mini-teste mas você pode
+discutir com os seus colegas --- inclusive no grupo da turma, mas não
+durante o horário da aula.
+
+Este mini-teste vale 0.5 pontos extras na P1.
+
+\msk
+
+(Obs: alguns alunos entregaram depois porque faltou luz)
+
+\newpage
+
+{\bf Regras (cont.):}
+
+\ssk
+
+Os alunos que cumprirem uma série de condições (ainda não divulguei a
+lista delas...) poderão compensar as suas questões erradas na P2
+fazendo vídeos explicando passo a passo como resolvê-las na semana
+seguinte à prova. \ColorRed{Uma das condições é ter feito todos os
+  mini-testes, então não deixe de fazer e entregar este mini-teste!}
+
+
+\newpage
+
+% «mini-teste»  (to ".mini-teste")
+% (c2m201mt1p 9 "mini-teste")
+% (c2m201mt1    "mini-teste")
+
+{\bf Mini-teste}
+
+\ssk
+
+Seja $A$ este polígono:
+
+$$
+ \unitlength=15pt
+ %
+ \vcenter{\hbox{%
+ \beginpicture(0,0)(6,4)
+   \pictgrid%
+   \pictpiecewise{(1,3)c--(1,1)c--(2,1)c--(2,2)c--(3,1)c--(4,1)c--(4,2)c--(3,2)c--(3,3)c--(1,3)c}%
+   \pictaxes%
+ \end{picture}%
+ }}
+$$
+
+Seja $h$ a função que dá a diferença entre a borda superior e a borda
+inferior de $A$ para cada valor de $x$ em $[1,4]$, e que é 0 para
+$x\not∈[1,4]$.
+
+\msk
+
+a) Faça o gráfico da função $h$.
+
+b) Dê uma definição por casos para a função $h$.
+
+c) Seja $H(b) = \Intx{2}{b}{h(x)}$. Desenhe o gráfico da $H$.
+
+d) Dê uma definição por casos para $H$.
+
+
+\newpage
+
+{\bf Mini-gabarito}
+
+(Muito incompleto, só pra me ajudar na correção)
+
+\ssk
+
+a e b) $h(x)=
+    \unitlength=10pt
+    %
+    \vcenter{\hbox{%
+    \beginpicture(0,0)(6,4)
+    \pictgrid%
+    \pictpiecewise{(0,0)--(1,0)o}%
+    \pictpiecewise{(1,2)c--(2,2)o}%
+    \pictpiecewise{(2,1)o--(3,2)o}%
+    \pictpiecewise{(3,1)o--(4,1)c}%
+    \pictpiecewise{(4,0)o--(6,0)}%
+    \pictaxes%
+    \end{picture}%
+    }}
+    =
+    \scalebox{1.0}{$
+    \begin{cases}
+    0   & \text{quando $x<1$}, \\
+    2   & \text{quando $1≤x<2$}, \\
+    x-1 & \text{quando $2<x<3$}, \\
+    1   & \text{quando $3<x≤4$}, \\
+    0   & \text{quando $4<x$}. \\
+    \end{cases}
+    $}
+   $
+
+c e d) $H(x)=
+    \unitlength=10pt
+    %
+    \vcenter{\hbox{%
+    \beginpicture(0,-3)(6,4)
+    \pictgrid%
+    \pictpiecewise{(0,-2)--(1,-2)c--(2,0)c}%
+    \pictpiecewise{(3,1.5)c--(4,2.5)c--(6,2.5)}%
+    \pictpiecewise{(2,0)--%
+                   (2.1,0.105)--%
+                   (2.2,0.22)--%
+                   (2.3,0.345)--%
+                   (2.4,0.48)--%
+                   (2.4,0.48)--%
+                   (2.5,0.625)--%
+                   (2.6,0.78)--%
+                   (2.6,0.78)--%
+                   (2.7,0.945)--%
+                   (2.8,1.12)--%
+                   (2.8,1.12)--%
+                   (2.9,1.305)--%
+                   (3,1.5)}
+    \pictaxes%
+    \end{picture}%
+    }}
+    =
+    \begin{cases}
+    -2     & \text{quando $x≤1$}, \\
+    2x-4   & \text{quando $1≤x<2$}, \\
+    \frac{x^2}{2}-x & \text{quando  $2≤x<3$}, \\
+    x-1.5  & \text{quando $3<x≤4$}, \\
+    2.5    & \text{quando $4<x$}. \\
+    \end{cases}
+   $
+
+
+
+
+
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C2-miniteste-1 veryclean
+make -f 2019.mk STEM=2020-1-C2-miniteste-1 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2m201mt1"
+% End:

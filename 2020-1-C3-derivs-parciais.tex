@@ -1,0 +1,313 @@
+% (find-LATEX "2020-1-C3-derivs-parciais.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C3-derivs-parciais.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C3-derivs-parciais.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C3-derivs-parciais.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C3-derivs-parciais.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C3-derivs-parciais"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C3-derivs-parciais.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-derivs-parciais.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-derivs-parciais.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C3-derivs-parciais.pdf
+%               file:///tmp/2020-1-C3-derivs-parciais.pdf
+%           file:///tmp/pen/2020-1-C3-derivs-parciais.pdf
+% http://angg.twu.net/LATEX/2020-1-C3-derivs-parciais.pdf
+% (find-LATEX "2019.mk")
+% (find-C3-aula-links "2020-1-C3-derivs-parciais" "12" "derps")
+
+% «.defs»		(to "defs")
+% «.title»		(to "title")
+% «.exercicio-1»	(to "exercicio-1")
+% «.exercicio-2»	(to "exercicio-2")
+% «.tipos»		(to "tipos")
+% «.exercicio-3»	(to "exercicio-3")
+% «.video»		(to "video")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\D{\displaystyle}
+
+\def\co#1{{%
+  \def\\{\char92}%
+  \tt#1%
+  }}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m201derpsp 1 "title")
+% (c3m201derpsa   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2020.1}
+
+\bsk
+
+Aula 13: Derivadas parciais
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C3.html}
+
+\end{center}
+
+\newpage
+
+% «exercicio-1»  (to ".exercicio-1")
+% (c3m201derpsp 2 "exercicio-1")
+% (c3m201derps    "exercicio-1")
+
+Ou últimos exercícios da aula passada -- link:
+
+\ssk
+
+\url{http://angg.twu.net/LATEX/2020-1-C3-superficies-2.pdf}
+
+\ssk
+
+\noindent eram uma preparação pra gente começar a entender
+\ColorRed{derivadas parciais} e o início do capítulo 5 do Bortolossi.
+
+\msk
+
+As nossas duas primeiras definições vão ser estas aqui:
+
+$$\begin{array}{rcl}
+  \D \frac{∂F}{∂x}(x_0,y_0) &=& \D \lim_{Δx→0} \frac{F(x_0+Δx,y_0)-F(x_0,y_0)}{Δx} \\[10pt]
+  \D \frac{∂F}{∂y}(x_0,y_0) &=& \D \lim_{Δy→0} \frac{F(x_0,y_0+Δy)-F(x_0,y_0)}{Δy} \\
+  \end{array}
+$$
+
+\bsk
+
+{\bf Exercício 1.} Descubra como transformar a definição 5.1 do
+Bortolossi (p.170) nas fórmulas acima.
+
+\newpage
+
+Obs: em Português a gente chama o `$∂$' de ``derrom''. Em Francês acho
+que ele se chama ```$d$' rond'', e devem ter pego a pronúncia disso
+e aportuguesado. Em \LaTeX{} o `$∂$' é `\co{\\partial}'.
+
+% (find-bortolossi5page (+ -161 162) "5. Derivadas parciais")
+% (find-bortolossi5page (+ -161 162) "5.1. Lembrando Cálculo 1")
+% (find-bortolossi5page (+ -162 164) "5.2. Definições e exemplos")
+% (find-bortolossi5page (+ -162 165)   "Fig. 5.2: Interpretação geométrica")
+% (find-bortolossi5page (+ -162 167)   "Exemplo 5.1: Cobb-Douglas")
+% (find-bortolossi5page (+ -162 170)   "Definição 5.1: derivada parcial")
+% (find-bortolossi5page (+ -162 171)   "a notação D_1 f é a mais clara")
+% (find-bortolossi5page (+ -162 172)   "omitir os pontos onde as parciais são calculadas")
+
+\bsk
+
+Nós vamos usar estas quatro \ColorRed{fórmulas para aproximações}:
+
+$$\begin{array}{lrcl}
+  1) & \D \frac{∂F}{∂x}(x_0,y_0) &≈& \D \frac{F(x_0+Δx,y_0)-F(x_0,y_0)}{Δx} \\[10pt]
+  2) & \D \frac{∂F}{∂y}(x_0,y_0) &≈& \D \frac{F(x_0,y_0+Δy)-F(x_0,y_0)}{Δy} \\[12pt]
+  3) & \D          F(x_0+Δx,y_0) &≈& \D F(x_0,y_0) + \frac{∂F}{∂x}(x_0,y_0) Δx \\[10pt]
+  4) & \D          F(x_0,y_0+Δy) &≈& \D F(x_0,y_0) + \frac{∂F}{∂y}(x_0,y_0) Δy \\
+  \end{array}
+$$
+
+
+\newpage
+
+% «exercicio-2»  (to ".exercicio-2")
+% (c3m201derpsp 4 "exercicio-2")
+% (c3m201derps    "exercicio-2")
+
+{\bf Exercício 2.}
+
+\ssk
+
+% (c3m201sups2p 3 "exercicio-1")
+% (c3m201sups2    "exercicio-1")
+
+Pegue o diagrama de numerozinhos que você fez para a função
+%
+$$ F(x,y) =
+\begin{cases}
+  \sqrt{5^2 - x^2 - y^2} & \text{quando $5^2 - x^2 - y^2≥0$}, \\
+  0 & \text{quando $5^2 - x^2 - y^2<0$,} \\
+ \end{cases}
+$$
+
+na aula passada -- link:
+
+\ssk
+
+\url{http://angg.twu.net/LATEX/2020-1-C3-superficies-2.pdf}
+
+\ssk
+
+e use-o para calcular algumas aproximações para
+$\frac{∂F}{∂x}(x_0,y_0)$ e $\frac{∂F}{∂y}(x_0,y_0)$ usando as fórmulas
+1 e 2 do slide anterior. Mais precisamente: sejam $x_0=2$, $y_0=4$, e:
+
+\msk
+
+a) calcule a aproximação para $\frac{∂F}{∂x}(x_0,y_0)$ usando $Δx=1$.
+
+b) calcule a aproximação para $\frac{∂F}{∂x}(x_0,y_0)$ usando $Δx=-1$.
+
+c) calcule a aproximação para $\frac{∂F}{∂y}(x_0,y_0)$ usando $Δy=1$.
+
+d) calcule a aproximação para $\frac{∂F}{∂y}(x_0,y_0)$ usando $Δy=-1$.
+
+
+\newpage
+
+% «tipos»  (to ".tipos")
+% (c3m201derpsp 5 "tipos")
+% (c3m201derps    "tipos")
+
+Dica: {\bf TUDO} que nós estamos fazendo agora pode ser {\sl
+  visualizado} e {\sl tipado}. Você já viu um pouco de tipos em {\tt
+  C} e em Física; em Física os ``tipos'' são parcialmente determinados
+pelas unidades --- metros são distância, segundos são tempo,
+metros/segundo é uma unidade de velocidade, e assim por diante...
+
+Aqui a gente pode pensar que $x_0$ e $x_1$ são posições no eixo
+horizontal, $y_0$ e $y_1$ são posições no eixo vertical, $Δx$ é uma
+distância na horizontal, $Δy$ é uma distância na vertical,
+$\frac{Δy}{Δx}$ é uma {\sl inclinação} (qual? Do quê?), e assim por
+diante.
+
+\newpage
+
+% «exercicio-3»  (to ".exercicio-3")
+% (c3m201derpsp 6 "exercicio-3")
+% (c3m201derps    "exercicio-3")
+
+{\bf Exercício 3.}
+
+\ssk
+
+Veja se você consegue ``tipar'' (no sentido acima) cada subexpressão
+de cada uma das contas que você fez no Exercício 2. Dica: use chaves
+sob as subexpressões deste modo aqui,
+
+\def\rq{\ColorRed{?}}
+\def\undq#1{\underbrace{#1}_{\rq}}
+
+$$\undq{
+  \undq{(\undq{F(\undq{\undq{\undq{x_0} + \undq{Δx}},\undq{y_0}})}
+        - \undq{F(\undq{\undq{x_0},\undq{y_0}})})} / \undq{Δx}
+  }
+$$
+
+e escreva os seus tipos nos lugares em que eu pus as `$\rq$'s. Use
+Português onde quiser e improvise o quanto precisar.
+
+
+
+%\printbibliography
+
+\end{document}
+
+% «video»  (to ".video")
+# (find-ssr-links "2020_C3_tipos" "grad")
+# (find-es "pulseaudio" "pulseaudio-kill")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+cd /tmp/
+cp -v  ~/LATEX/2020-1-C3-derivs-parciais.pdf /tmp/
+xournalpp /tmp/2020-1-C3-derivs-parciais.pdf
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C3-derivs-parciais veryclean
+make -f 2019.mk STEM=2020-1-C3-derivs-parciais pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3m201derps"
+% End:

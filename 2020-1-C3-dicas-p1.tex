@@ -1,0 +1,296 @@
+% (find-LATEX "2020-1-C3-dicas-p1.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C3-dicas-p1.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C3-dicas-p1.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C3-dicas-p1.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C3-dicas-p1.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C3-dicas-p1"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C3-dicas-p1.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-dicas-p1.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-dicas-p1.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C3-dicas-p1.pdf
+%               file:///tmp/2020-1-C3-dicas-p1.pdf
+%           file:///tmp/pen/2020-1-C3-dicas-p1.pdf
+% http://angg.twu.net/LATEX/2020-1-C3-dicas-p1.pdf
+% (find-LATEX "2019.mk")
+% (find-C3-aula-links "2020-1-C3-dicas-p1" "dp1" "dp1")
+
+% «.dicas»		(to "dicas")
+% «.aulas-7-e-8»	(to "aulas-7-e-8")
+% «.aula-13»		(to "aula-13")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m201dp1p 1 "title")
+% (c3m201dp1a   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2020.1}
+
+\bsk
+
+Dicas pra estudar pra P1
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C3.html}
+
+\end{center}
+
+\newpage
+
+% «dicas»  (to ".dicas")
+% (c3m201dp1p 2 "dicas")
+% (c3m201dp1    "dicas")
+
+{\bf Dicas}
+
+% (c3m201introp)
+% (c3m201intro)
+
+\ssk
+
+Aula 2: Vetores tangentes em $\R^2$
+
+Refaça o exercício 4.
+
+% (c3m201vtp)
+% (c3m201vt)
+% (c3m201vtp 8 "exercicio-4")
+% (c3m201vt    "exercicio-4")
+
+\msk
+
+Aulas 3 e 4: Aproximações de 1ª e 2ª ordem
+
+Refaça o exercício 5.
+
+% (c3m201taylor1p)
+% (c3m201taylor1)
+% (c3m201taylor1p 18 "exercicio-5")
+% (c3m201taylor1     "exercicio-5")
+
+\msk
+
+Aula 5 e 6: Aproximações de 1ª e 2ª ordem: algumas aplicações
+
+Refaça os exercícios 1 até 4.
+
+Tem um scan da resposta no próximo PDF.
+
+% (c3m201taylor2p)
+% (c3m201taylor2)
+
+\msk
+
+% «aulas-7-e-8»  (to ".aulas-7-e-8")
+% (c3m201dp1p 2 "aulas-7-e-8")
+% (c3m201dp1    "aulas-7-e-8")
+
+Aulas 7 e 8: dx, $Δx$ e série de Taylor
+
+Refaça os exercícios 1 e 4.
+
+% (c3m201taylor3p)
+% (c3m201taylor3)
+% (c3m201taylor3p 5 "exercicio-1")
+% (c3m201taylor3    "exercicio-1")
+% (c3m201taylor3p 9 "exercicio-4")
+% (c3m201taylor3    "exercicio-4")
+
+\msk
+
+Aulas 9 e 10: introdução a superfícies e curvas de nível
+
+Refaça os exercícios 1a, 1b, 1c.
+
+Refaça os exercícios 2a e 2b.
+
+% (c3m201sups1p)
+% (c3m201sups1)
+
+\newpage
+
+Aulas 11 e 12: Alguns truques para visualizar superfícies
+
+Tente fazer os exercícios 1b--1f sem fazer o diagrama de
+
+numerozinhos.
+
+% (c3m201sups2p)
+% (c3m201sups2)
+
+\msk
+
+% «aula-13»  (to ".aula-13")
+% (c3m201dp1p 3 "aula-13")
+% (c3m201dp1    "aula-13")
+% (c3m201derpsp)
+% (c3m201derps)
+
+Aula 13: Derivadas parciais
+
+Marque só estes pontos no diagram de numerozinhos:
+
+$$\begin{array}{lll}
+              & F(2,5) = 0 & \\
+F(1,4) ≈ 2.83 & F(2,4) ≈ 2.24 & F(3,4) = 0 \\
+              & F(2,3) ≈ 3.46 & \\
+\end{array}
+$$
+
+e use-os para fazer o exercício 2.
+
+Releia o exercício 3, sobre tipar tudo --- ele é muito importante.
+
+% (eepitch-lua51)
+% (eepitch-kill)
+% (eepitch-lua51)
+% f = function (x,y)
+%     local z = math.sqrt(25 - x*x - y*y)
+%     print(x, y, z)
+%   end
+% f(2,4)
+% f(2,4+1)
+% f(2,4-1)
+% f(2+1,4)
+% f(2-1,4)
+
+\msk
+
+
+% (c3m201pltanp)
+% (c3m201pltan)
+% (c3m201pltanp 4 "exercicio-2")
+% (c3m201pltan    "exercicio-2")
+% (c3m201pltanp 9 "exercicio-4")
+% (c3m201pltan    "exercicio-4")
+
+Aula 14 e 15: Introdução a planos tangentes e à derivada
+
+Refaça os exercícios 2a, 2g--2k, 4e, 4f.
+
+\newpage
+
+Aula 18: Derivadas parciais de ordem mais alta
+
+Já revisamos no mini-teste.
+
+% (c3m201Fxyp)
+% (c3m201Fxy)
+
+\msk
+
+% (c3m201aprox2aop)
+% (c3m201aprox2ao)
+
+Aula 19: aproximações de 2ª ordem em $\R^2$
+
+Faça no exercício 2 o item a e o caso 5 do item b.
+
+\msk
+
+% (c3m201dp1p)
+% (c3m201dp1)
+
+
+
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C3-dicas-p1 veryclean
+make -f 2019.mk STEM=2020-1-C3-dicas-p1 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3m201dp1"
+% End:

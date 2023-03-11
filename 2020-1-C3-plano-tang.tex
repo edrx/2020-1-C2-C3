@@ -1,0 +1,474 @@
+% (find-LATEX "2020-1-C3-plano-tang.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C3-plano-tang.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C3-plano-tang.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C3-plano-tang.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C3-plano-tang.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C3-plano-tang"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C3-plano-tang.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-plano-tang.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-plano-tang.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C3-plano-tang.pdf
+%               file:///tmp/2020-1-C3-plano-tang.pdf
+%           file:///tmp/pen/2020-1-C3-plano-tang.pdf
+% http://angg.twu.net/LATEX/2020-1-C3-plano-tang.pdf
+% (find-LATEX "2019.mk")
+% (find-C3-aula-links "2020-1-C3-plano-tang" "14" "pltan")
+
+% «.defs»		(to "defs")
+% «.title»		(to "title")
+% «.danilo-pereira»	(to "danilo-pereira")
+% «.exercicio-1»	(to "exercicio-1")
+% «.exercicio-2»	(to "exercicio-2")
+% «.derivada»		(to "derivada")
+% «.exercicio-3»	(to "exercicio-3")
+% «.exercicio-4»	(to "exercicio-4")
+% «.mini-teste-1»	(to "mini-teste-1")
+% «.miniteste-regras»	(to "miniteste-regras")
+% «.video»		(to "video")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m201pltanp 1 "title")
+% (c3m201pltana   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2020.1}
+
+\bsk
+
+Aula 14 e 15: Introdução a planos tangentes
+
+(e à derivada --- \ColorRed{e mini-teste 1})
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C3.html}
+
+\end{center}
+
+\newpage
+
+%\printbibliography
+
+% «danilo-pereira»  (to ".danilo-pereira")
+% (find-youtubedl-links "/sda5/videos/" "Calculo II - Derivada Direcional e Vetor Gradiente (1 de 2)" "nmZ1Wmk7wcY" ".mp4" "dpddvg1")
+% (code-video "dpddvg1video" "/sda5/videos/Calculo II - Derivada Direcional e Vetor Gradiente (1 de 2)-nmZ1Wmk7wcY.mp4")
+% (find-dpddvg1video "0:00")
+
+Na aula passada nós começamos a ver derivadas parciais, mas num caso
+complicado, e eu pedi pra vocês assistirem este vídeo aqui, do Danilo
+Pereira,
+
+\ssk
+
+\url{http://www.youtube.com/watch?v=nmZ1Wmk7wcY}
+
+\ssk
+
+\noindent
+chamado ``Cálculo II - Derivada Direcional e Vetor Gradiente (1 de
+2)'', que também começa direto em casos bem complicados.
+
+Hoje nós vamos ver algo bem mais simples: {\sl planos}.
+
+\newpage
+
+% «exercicio-1»  (to ".exercicio-1")
+% (c3m201pltanp 3 "exercicio-1")
+% (c3m201pltan    "exercicio-1")
+
+{\bf Definição.} Vou dizer que uma função $F: \R^2 → \R$ {\sl é de
+  primeira ordem} quando existirem $a,b,c∈\R$ tais que $F$ é da forma:
+%
+$$F(x,y) \;\; = \;\; ax + by +c$$
+
+\bsk
+
+{\bf Exercício 1.}
+
+Para cada uma das funções abaixo converta-a para a forma $F(x,y) =
+ax+by+c$ e diga ``quem são o $a$, o $b$ e o $c$ dela''.
+
+\ssk
+
+a) $F(x,y) = 2(x+y) + 3 (x-4y) - 20$
+
+b) $F(x,y) = (x+y) + (x-y) + 42$
+
+\newpage
+
+% «exercicio-2»  (to ".exercicio-2")
+% (c3m201pltanp 4 "exercicio-2")
+% (c3m201pltan    "exercicio-2")
+
+{\bf Exercício 2.}
+
+Seja $F(x,y) = 3 + 2x +y$.
+
+a) Desenhe o diagrama de numerozinhos da $F$.
+
+b) Calcule $F(0,2)$.
+
+c) Desenhe a curva de nível de $z=F(0,2)$.
+
+d) Desenhe a curva de nível de $z=F(2,2)$.
+
+e) Desenhe a curva de nível de $z=9$.
+
+f) Desenhe a curva de nível de $z=3$.
+
+g) Sempre que uma $F:\R^2 → \R$ for uma função de primeira ordem as
+suas curvas de nível vão ser ``equiespaçadas''. Use isto para
+descobrir como desenhar as curvas de nível da $F$ para $z=0$, $z=1$,
+$z=2$, $z=3$, $z=4$. Escreva do lado de cada uma delas ``$z=0$'',
+``$z=1$'', etc, pra você não se perder.
+
+\newpage
+
+{\bf Exercício 2 (continuação).}
+
+\ssk
+
+h) Escolha algum vetor $\vv$ não-nulo que seja paralelo às curvas de
+nível que você acabou de desenhar. Diga as componentes dele.
+
+i) Calcule as derivadas parciais da $F$.
+
+j) Calcule o gradiente da $F$. Dica: onde o vídeo do Danilo Pereira
+define gradiente? Ele usa a mesma notação que o Bortolossi usa no
+capítulo 8 do livro dele?
+
+k) O gradiente da $F$ é ortogonal ao vetor $\vv$ do item h? Calcule o
+produto interno deles.
+
+% (find-bortolossi8page (+ -290 291) "8. Derivadas direcionais e o vetor gradiente")
+
+\newpage
+
+Seja $F(x,y) = 3 + 2x +y$,
+
+Slogan: ``o vetor gradiente de $F$ diz a direção
+
+pra onde a $F$ cresce mais rápido''.
+
+Sejam $(x_0,y_0) = (2,1)$, $C = \setofst{(x_0,y_0) + \vv}{||\vv||=1}$.
+
+Veja este vídeo:
+
+\ssk
+
+\url{http://angg.twu.net/eev-videos/2020_vetor_gradiente.mp4} 
+
+
+\newpage
+
+% «derivada»  (to ".derivada")
+% (c3m201pltanp 7 "derivada")
+% (c3m201pltan    "derivada")
+
+{\bf Derivada}
+
+\ssk
+
+Se $F$ é um função de $\R^m$ em $R^n$ a derivada de $F$ vai ser uma
+{\sl matriz}... isto é bem complicado e vai ficar pra segunda parte do
+curso --- mas hoje vamos ver um caso particular, no qual a derivada
+$Df$ é uma matriz {\sl horizontal}, e este caso vai nos ajudar a
+entender algumas coisas do video do Danilo Pereira.
+
+\msk
+
+{\bf Definição} (temporária):
+
+Se $F:\R^2 → \R$ e $p_0$ é um ponto de $\R^2$ então
+%
+$$\begin{array}{rcl}
+  DF(p_0) &=& \pmat{\frac{∂F}{∂x}(p_0) & \frac{∂F}{∂y}(p_0)} \\
+  DF      &=& \pmat{\frac{∂F}{∂x}      & \frac{∂F}{∂y}} \\
+  \end{array}
+$$
+
+Obs: ela é ``temporária'' porque depois que nós entendermos as páginas
+252 até 263 do Bortolossi a nossa definição ``de verdade'' da derivada
+em várias dimensões vai ser algo bem mais geral, e as equações acima
+vão ser só consequências ``óbvias'' da definição mais geral.
+
+% (c3m192p 5 "ponto-base")
+% (c3m192    "ponto-base")
+% (find-LATEX "2019-2-C3-material.tex" "ponto-base")
+% (find-LATEX "2019-2-C3-material.tex" "ponto-base" "jacobiana")
+
+\newpage
+
+% «exercicio-3»  (to ".exercicio-3")
+
+{\bf Exercício 3.}
+
+\ssk
+
+Slogan: ``Funções de primeira ordem têm derivada constante''.
+
+Seja $F(x,y) = 3 + 2x + y$.
+
+\ssk
+
+Calcule:
+
+a) $DF(10, 20)$
+
+b) $DF(42, 99)$
+
+\msk
+
+Seja $G(p_1) = F(p_1) + DF(p_0)(p_1 - p_0)$,
+
+onde $F$ continua a mesma.
+
+Digamos que $p_0 = (1,4)$ e $p_1 = (2,5)$.
+
+c) Segundo as nossas convenções quem são $x_0$, $y_0$, $x_1$, $y_1$?
+
+d) Interpretando $(p_1 - p_0)$ como um vetor vertical, isto é,
+
+$(p_1 - p_0) = \psm{x_1-x_0 \\ y_1-y_0}$, Calcule $G(p_1)$.
+
+e) Calcule $F(p_1)$ e compare o seu valor com $G(p_1)$.
+
+
+\newpage
+
+% «exercicio-4»  (to ".exercicio-4")
+% (c3m201pltanp 9 "exercicio-4")
+% (c3m201pltan    "exercicio-4")
+
+No exercício da página anterior você aproximou uma função $F$ de
+primeira ordem por uma função $G$ que também era de primeira ordem, e
+você deve ter descoberto que no ponto $p_1$ que eu dei a gente tinha
+$G(p_1) = F(p_1)$... agora vamos tentar fazer algo \ColorRed{parecido}
+começando com uma $F$ que não é de primeira ordem.
+
+\bsk
+
+{\bf Exercício 4.}
+
+\ssk
+
+Seja $F(x,y) = y(y-x)$.
+
+a) Faça o diagrama de numerozinhos para esta $F$.
+
+b) Desenhe nele a curva de nível de $F(x,y)=0$.
+
+c) Calcule $F(4,1)$.
+
+b) Desenhe a curva de nível de $F(x,y)=F(4,1)$.
+
+e) Calcule $DF(4,1)$.
+
+f) Seja $G(p_1) = F(p_0) + DF(p_0) (p_1 - p_0)$. Ponha esta $G$ na
+forma $G(x,y) = ax + by + c$. Quem são $a$, $b$, e $c$?
+
+\newpage
+
+{\bf Exercício 4 (continuação).}
+
+\ssk
+
+g) Calcule $DG$ e $DG(4,1)$.
+
+h) Desenhe a curva de nível de $G(x,y)=G(4,1)$.
+
+i) Essa curva de nível é, ou parece ser, tangente à curva de nível da
+$F$ que você obteve no item (b)?
+
+\bsk
+
+j) Refaça os itens anteriores mas agora usando $p_0 = (3,2)$ ao invés
+de $p_0 = (4,1)$.
+
+
+
+\newpage
+
+% «mini-teste-1»  (to ".mini-teste-1")
+% (c3m201pltanp 11 "mini-teste-1")
+% (c3m201pltan     "mini-teste-1")
+
+{\bf Mini-teste 1}
+
+\ssk
+
+Sejam $F(x,y) = (x-2)(x+y)$ e $p_0 = (2,1)$.
+
+a) Faça o diagrama de numerozinhos para esta $F$.
+
+b) Desenhe nele as curvas de nível de $F(x,y)=0$ e $F(x,y) = F(p_0)$.
+
+c) Calcule $DF(p_0)$.
+
+d) Seja $G(p_1) = F(p_0) + DF(p_0) (p_1 - p_0)$. Ponha esta $G$ na
+forma $G(x,y) = ax + by + c$. Quem são $a$, $b$, e $c$?
+
+e) Desenhe a curva de nível de $G(x,y) = G(p_0)$ \ColorRed{sobre o
+  gráfico do item b}.
+
+
+\newpage
+
+% «miniteste-regras»  (to ".miniteste-regras")
+% (c3m201pltanp 12 "miniteste-regras")
+% (c3m201pltan     "miniteste-regras")
+% (c2m201mt1p 7 "miniteste-regras")
+% (c2m201mt1    "miniteste-regras")
+
+{\bf Regras:}
+
+As questões do mini-teste serão disponibilizadas às 14:00 da
+sexta-feira 13/nov/2020 e você deverá entregar as respostas
+\ColorRed{escritas à mão} até as 22:00 do sábado 14/nov/2020 na
+plataforma Classroom. Se o Classroom der algum problema mande também
+para este endereço de e-mail:
+
+\ssk
+
+\ColorRed{eduardoochs@gmail.com}
+
+\ssk
+
+Mini-testes entregues após este horário não serão considerados.
+
+Durante as 24 horas do mini-teste o professor não responderá perguntas
+sobre os assuntos do mini-teste mas você pode discutir com os seus
+colegas --- inclusive no grupo da turma.
+
+Este mini-teste vale 0.5 pontos extras na P1.
+
+\newpage
+
+{\bf Regras (cont.):}
+
+\ssk
+
+Os alunos que cumprirem uma série de condições (ainda não divulguei a
+lista delas...) poderão compensar as suas questões erradas na P2
+fazendo vídeos explicando passo a passo como resolvê-las na semana
+seguinte à prova. \ColorRed{Uma das condições é ter feito todos os
+  mini-testes, então não deixe de fazer e entregar este mini-teste!}
+
+
+
+
+
+\end{document}
+
+% «video»  (to ".video")
+# (find-ssr-links "2020_vetor_gradiente" "grad")
+# (find-ssr-links "2020_derivada_1" "deriv1")
+# (find-es "pulseaudio" "pulseaudio-kill")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+cd /tmp/
+cp -v  ~/LATEX/2020-1-C3-plano-tang.pdf /tmp/
+xournalpp 2020-1-C3-plano-tang.pdf
+
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C3-plano-tang veryclean
+make -f 2019.mk STEM=2020-1-C3-plano-tang pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3m201pltan"
+% End:

@@ -1,0 +1,303 @@
+% (find-LATEX "2020-1-C2-int-pots-sen-cos.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C2-int-pots-sen-cos.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C2-int-pots-sen-cos.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C2-int-pots-sen-cos.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C2-int-pots-sen-cos.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C2-int-pots-sen-cos"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C2-int-pots-sen-cos.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-int-pots-sen-cos.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-int-pots-sen-cos.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C2-int-pots-sen-cos.pdf
+%               file:///tmp/2020-1-C2-int-pots-sen-cos.pdf
+%           file:///tmp/pen/2020-1-C2-int-pots-sen-cos.pdf
+% http://angg.twu.net/LATEX/2020-1-C2-int-pots-sen-cos.pdf
+% (find-LATEX "2019.mk")
+% (find-C2-aula-links "2020-1-C2-int-pots-sen-cos" "18" "ipsc")
+
+% «.exemplo-1»		(to "exemplo-1")
+% «.exemplo-1-verif»	(to "exemplo-1-verif")
+% «.exemplo-2»		(to "exemplo-2")
+% «.exercicio-1»	(to "exercicio-1")
+% «.pares-e-impares»	(to "pares-e-impares")
+% «.video»		(to "video")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+% (find-angg ".emacs" "c2q192")
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2020.1}
+
+\bsk
+
+Aula 18: Integrais de potências de senos e cossenos
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C2.html}
+
+\end{center}
+
+\newpage
+
+% «exemplo-1»  (to ".exemplo-1")
+% (c2m201ipscp 2 "exemplo-1")
+% (c2m201ipsca   "exemplo-1")
+% (c2q192 32 "20190906 gde aula 7: integração por partes; potências de sen e cos")
+% (c2q192 34 "20190906 peq aula 7: integração por partes; potências de sen e cos")
+% (c2q192 35 "20190906 peq aula 7: integração por partes; potências de sen e cos")
+
+\def\S{\sen x}
+\def\C{\cos x}
+\def\D{\displaystyle}
+\def\und#1#2{\underbrace{#1}_{#2}}
+
+{\bf Exemplo 1}
+%
+$$\begin{array}[t]{l}
+  \D \intx{(\S)^5 (\C)^3} \\
+  \D = \;\; \intx{(\S)^5 (\C)^2 (\C)} \\
+  \D = \;\; \intx{(\und{\S}{s})^5 \und{(\C)^2}{1-s^2} \und{(\C)}{\frac{ds}{dx}}} \\
+  \D = \;\; \ints{s^5 (1-s^2)} \\
+  \D = \;\; \ints{s^5 - s^7} \\
+  \D = \;\; \frac{s^6}{6} - \frac{s^8}{8} \\
+  \D = \;\; \frac{(\S)^6}{6} - \frac{(\S)^8}{8} \\
+  \end{array}
+  \qquad
+  \begin{array}[t]{c}
+  \\ \\
+    \bmat{s = \sen x \\
+          \frac{ds}{dx} = \cos x \\
+          \sen x = s \\
+          (\cos x)^2 = 1 - s^2 \\
+          \cos x \, dx = ds
+    }
+  \end{array}
+$$
+
+\newpage
+
+% «exemplo-1-verif»  (to ".exemplo-1-verif")
+% (c2m201ipscp 3 "exemplo-1-verif")
+% (c2m201ipsc    "exemplo-1-verif")
+
+{\bf Exemplo 1: verificação}
+
+$$\begin{array}[t]{l}
+  \D \ddx \left(\frac{(\S)^6}{6} - \frac{(\S)^7}{7}\right) \\
+  \D = \frac{6(\S)^5\C}{6} - \frac{8(\S)^7\C}{8} \\
+  \D = ((\S)^5 - (\S)^7) \C \\
+  \D = ((\S)^5(1-(\S)^2)) \C \\
+  \D = (\S)^5(\C)^2 \C \\
+  \D = (\S)^5(\C)^3 \\
+  \end{array}
+$$
+
+\newpage
+
+% «exemplo-2»  (to ".exemplo-2")
+% (c2m201ipscp 4 "exemplo-2")
+% (c2m201ipsc    "exemplo-2")
+
+{\bf Exemplo 2}
+%
+$$\begin{array}[t]{l}
+  \D \intx{(\S)^5 (\C)^2} \\
+  \D = \;\; \intx{(\S)^4 (\C)^2 \S} \\
+  \D = \;\; \intx{(\und{(\S)^2}{1-c^2})^2 \und{(\C)^2}{c^2} \und{(\S)}{-\frac{dc}{dx}}} \\
+  \D = \;\; \intc{(1-c^2)^2 c^2} \\
+  \D = \;\; \intc{(c^4 - 2c^2 + 1) c^2 (-1)} \\
+  \D = \;\; \intc{-c^6 + 2c^4 - c^2} \\
+  \D = \;\; \ldots \\
+  \end{array}
+  \qquad
+  \begin{array}[t]{c}
+  \\ \\
+    \bmat{c = \cos x \\
+          \frac{dc}{dx} = - \sen x \\
+          \cos x = c \\
+          (\sen x)^2 = 1 - c^2 \\
+          \sen x \, dx = (-1)\,dc
+    }
+  \end{array}
+$$
+
+\newpage
+
+% «exercicio-1»  (to ".exercicio-1")
+% (c2m201ipscp 5 "exercicio-1")
+% (c2m201ipsc    "exercicio-1")
+
+{\bf Exercício 1.}
+
+\ssk
+
+a) Calcule a integral do exemplo 1 -- $\D \intx{(\S)^5 (\C)^3}$ --
+
+usando a substituição $c=\cos x$ ao invés de $s=\sen x$.
+
+\msk
+
+b) Teste o seu resultado.
+
+
+
+\newpage
+
+% «pares-e-impares»  (to ".pares-e-impares")
+% (c2m201ipscp 6 "pares-e-impares")
+% (c2m201ipsc    "pares-e-impares")
+
+{\bf Dica importante}
+
+\ssk
+
+Pra integrar algo como:
+%
+$$ \intx {(\S)^α (\C)^β}
+$$
+
+Se tanto $α$ quanto $β$ são ímpares as duas subtituições,
+
+$s=\S$ e $c=\C$, funcionam.
+
+\msk
+
+Se só um dos dois é ímpar só uma delas funciona
+
+(não vou dizer qual).
+
+\msk
+
+Se tanto $α$ quanto $β$ são \ColorRed{pares} aí \ColorRed{nenhuma
+
+das duas substituições funciona}, e a gente vai precisar
+
+de técnicas mais avançadas que vamos ver depois.
+
+
+
+
+
+%\printbibliography
+
+\end{document}
+
+% __     ___     _            
+% \ \   / (_) __| | ___  ___  
+%  \ \ / /| |/ _` |/ _ \/ _ \ 
+%   \ V / | | (_| |  __/ (_) |
+%    \_/  |_|\__,_|\___|\___/ 
+%                             
+% «video»  (to ".video")
+% (find-ssr-links     "c2m201ipcs" "2020_int_pots_sen_cos")
+% (code-eevvideo      "c2m201ipcs" "2020_int_pots_sen_cos")
+% (code-eevlinksvideo "c2m201ipcs" "2020_int_pots_sen_cos")
+% (find-c2m201ipcsvideo "0:00")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+cp -v  ~/LATEX/2020-1-C2-int-pots-sen-cos.pdf /tmp/
+cd /tmp/
+xournalpp 2020-1-C2-int-pots-sen-cos.pdf
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C2-int-pots-sen-cos veryclean
+make -f 2019.mk STEM=2020-1-C2-int-pots-sen-cos pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2m201ipsc"
+% End:

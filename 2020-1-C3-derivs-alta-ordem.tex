@@ -1,0 +1,321 @@
+% (find-LATEX "2020-1-C3-derivs-alta-ordem.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C3-derivs-alta-ordem.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C3-derivs-alta-ordem.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C3-derivs-alta-ordem.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C3-derivs-alta-ordem.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C3-derivs-alta-ordem"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C3-derivs-alta-ordem.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-derivs-alta-ordem.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-derivs-alta-ordem.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C3-derivs-alta-ordem.pdf
+%               file:///tmp/2020-1-C3-derivs-alta-ordem.pdf
+%           file:///tmp/pen/2020-1-C3-derivs-alta-ordem.pdf
+% http://angg.twu.net/LATEX/2020-1-C3-derivs-alta-ordem.pdf
+% (find-LATEX "2019.mk")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m201Fxyp 1 "title")
+% (c3m201Fxy    "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2020.1}
+
+\bsk
+
+Aula 18: Derivadas parciais de ordem mais alta
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C3.html}
+
+\end{center}
+
+\newpage
+
+% (c3m192p 5 "ponto-base")
+% (c3m192    "ponto-base")
+
+Às vezes você vai ver esse aviso aqui...
+
+\ssk
+
+\ColorRed{Contas fora do ponto base zeram a questão!}
+
+\ssk
+
+Se o nosso ponto base é $p_0 = (x_0,y_0)$ isso quer dizer que você
+
+vai ter que evitar ao máximo fazer expansões como:
+%
+$$h(x,y) (x-x_0) \;\; \squigto \;\; h(x,y)·x + h(x,y)·(x_0)$$
+
+E você vai ter que derivar esse $h(x,y) (x-x_0)$ assim:
+
+$$\begin{array}{rcl}
+  \frac{∂}{∂x} (h(x,y) (x-x_0)) &=& (\frac{∂}{∂x}h(x,y)) (x-x_0) + h(x,y) \frac{∂}{∂x}(x-x_0) \\
+                                &=& h_x(x,y) (x-x_0) + h(x,y). \\
+  \end{array}
+$$
+
+O mini-teste vai ter um aviso desses.
+
+Isto vale também para $(y-y_0)$, $(x-x_0)^k$, e $(y-y_0)^k$.
+
+\newpage
+
+
+{\bf Exercício 0.}
+
+Sejam:
+
+$F(x,y) \; =\;  (x-x_0)^4 (y-y_0)^7$
+
+e $(x_0,y_0) = (2,3)$.
+
+\msk
+
+Calcule:
+%
+$\begin{array}[t]{cccccccc}
+ F(x,y),      & F_x(x,y),     & F_{xx}(x,y), \\
+ F_y(x,y),    & F_{xy}(x,y),  & F_{xxy}(x,y), \\
+ F_{yy}(x,y), & F_{xyy}(x,y), & F_{xxyy}(x,y), \\[5pt]
+ %
+ F(x_0,y_0),      & F_x(x_0,y_0),     & F_{xx}(x_0,y_0), \\
+ F_y(x_0,y_0),    & F_{xy}(x_0,y_0),  & F_{xxy}(x_0,y_0), \\
+ F_{yy}(x_0,y_0), & F_{xyy}(x_0,y_0), & F_{xxyy}(x_0,y_0), \\
+ \end{array}
+$
+
+\msk
+
+Dica: \ColorRed{não} substitua, por exemplo, $3^3 · 7^2$ por 1323 --
+
+se você deixar como ``$3^3 · 7^2$'' vai dar pra ver os padrões,
+
+e se você trocar isso por 1323 só alguém MUITO bom de conta
+
+vai conseguir vê-los.
+
+\newpage
+
+
+{\bf Exercício 1.}
+
+Seja:
+
+$\scalebox{0.8}{$
+ \begin{array}[t]{cccccccc}
+ F(x,y) &=& a_{00}           &+& a_{10} (x-x_0)           &+& a_{20} (x-x_0)^2         \\
+        &+& a_{01} (y-y_0)   &+& a_{11} (x-x_0) (y-y_0)   &+& a_{21} (x-x_0)^2 (y-y_0) \\
+        &+& a_{02} (y-y_0)^2 &+& a_{12} (x-x_0) (y-y_0)^2 &+& a_{22} (x-x_0)^2 (y-y_0)^2. \\
+ \end{array}
+ $}
+$
+
+\bsk
+
+Calcule:
+%
+$\begin{array}[t]{cccccccc}
+ F(x,y),      & F_x(x,y),     & F_{xx}(x,y), \\
+ F_y(x,y),    & F_{xy}(x,y),  & F_{xxy}(x,y), \\
+ F_{yy}(x,y), & F_{xyy}(x,y), & F_{xxyy}(x,y), \\[5pt]
+ %
+ F(x_0,y_0),      & F_x(x_0,y_0),     & F_{xx}(x_0,y_0), \\
+ F_y(x_0,y_0),    & F_{xy}(x_0,y_0),  & F_{xxy}(x_0,y_0), \\
+ F_{yy}(x_0,y_0), & F_{xyy}(x_0,y_0), & F_{xxyy}(x_0,y_0), \\
+ \end{array}
+$
+
+\bsk
+
+Dica: dá pra fazer essas contas de cabeça depois que você descobrir
+certos truques padrões. Faça as primeiras contas explicitamente no
+papel, e depois descubra esses padrões.
+
+% (c3q192 30 "20191108" "Exercícios sobre ponto base; regra da cadeia no Bortolossi")
+
+\newpage
+
+{\bf Exercício 2.}
+
+Seja 
+
+\msk
+
+$\begin{array}[t]{cccccccc}
+ G(x,y) &=& 4         &+& 5 (x-2)         &+& 6 (x-2)^2         \\
+        &+& 7 (y-3)   &+& 8 (x-2) (y-3)   &+& 9 (x-2)^2 (y-3) \\
+        &+& 10 (y-3)^2 &+& 11 (x-2) (y-3)^2 &+& 12 (x-2)^2 (y-3)^2. \\
+ \end{array}
+$
+
+\msk
+
+Calcule:
+%
+$\begin{array}[t]{cccccccc}
+ G(2,3),      & G_x(2,3),     & G_{xx}(2,3), \\
+ G_y(2,3),    & G_{xy}(2,3),  & G_{xxy}(2,3), \\
+ G_{yy}(2,3), & G_{xyy}(2,3), & G_{xxyy}(2,3), \\
+ \end{array}
+$
+
+\msk
+
+(Dica: qual é o ponto base aqui?)
+
+\newpage
+
+Isso vai ter montes de aplicações -- por exemplo, os capítulos 11 e 12
+do Bortolossi, que são sobre otimização, usam derivadas parciais de
+ordem maior que 1 e aproximações de Taylor em $R^2$ a beça...
+
+O que a gente está fazendo hoje é começar a entender quais são as
+funções que são bem aproximadas pelas suas aproximações de Taylor (que
+vamos ver em breve!) -- e a gente vai comecar por funções polinomiais.
+
+
+\newpage
+
+(Ainda não revisei a partir daqui...)
+
+\msk
+
+
+3) Leia a seção sobre Teorema de Young no Bortolossi. Dá pra aplicar o
+teorema de Young nas funções $F$ e $G$?
+
+\msk
+
+4) Calcule todas as derivadas de 2ª ordem da função $F$. (Dica:
+procure no Bortolossi a definição de "derivadas de 2ª ordem!)
+
+\msk
+
+5) Calcule todas as derivadas de 3ª ordem da função $H(x,y) = x^2 y_2$.
+
+\msk
+
+6) Especialize o Teorema 7.7 do Bortolossi para o caso $l=1$, $m=2$,
+$n=1$. Obs: o livro tem alguns erros de digitação nesse teorema, e às
+vezes ele troca `$l$'s por `$k$'s e `$k$'s por `$l$'s; considere que
+todas as funções são de classe $C^k$. {\sl Escreva o seu resultado
+  como um corolário.} Dica: leia as páginas 252 a 263 se precisar
+tirar dúvidas sobre matriz jacobiana.
+
+\msk
+
+7) Use o seu corolário para calcular $\frac{d}{dt} F(g(t),h(t))$.
+
+\msk
+
+8) Use o que você obteve no (7) para calcular $\frac{d}{dt}
+F(g(t),h(t))$ no caso em que $F(x,y) = x^2y^3$, $g(t) = \sen t$, $h(t)
+= e^{4t}$.
+
+\msk
+
+9) Calcule $\frac{d}{dt} ((\sen t)^2(e^{4t})^3)$ usando métodos de
+Cálculo 1.
+
+
+%\printbibliography
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C3-derivs-alta-ordem veryclean
+make -f 2019.mk STEM=2020-1-C3-derivs-alta-ordem pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3m201Fxy"
+% End:

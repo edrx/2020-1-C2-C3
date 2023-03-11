@@ -1,0 +1,304 @@
+% (find-LATEX "2020-1-C3-P1.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C3-P1.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C3-P1.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C3-P1.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C3-P1.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C3-P1"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C3-P1.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-P1.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-P1.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C3-P1.pdf
+%               file:///tmp/2020-1-C3-P1.pdf
+%           file:///tmp/pen/2020-1-C3-P1.pdf
+% http://angg.twu.net/LATEX/2020-1-C3-P1.pdf
+% (find-LATEX "2019.mk")
+
+% «.regras»	(to "regras")
+% «.questao-1»	(to "questao-1")
+% «.questao-2»	(to "questao-2")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m201p1p 1 "title")
+% (c3m201p1a   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2020.1}
+
+\bsk
+
+P1 (Primeira prova)
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C3.html}
+
+\end{center}
+
+\newpage
+
+% «regras»  (to ".regras")
+% (c3m201p1p 2 "regras")
+% (c3m201p1    "regras")
+
+% (c2m201p1p 2 "regras")
+% (c2m201p1    "regras")
+
+{\bf Regras para a P1:}
+
+\ssk
+
+As questões da P1 serão disponibilizadas às 16:45 da
+sexta-feira 27/nov/2020 e você deverá entregar as respostas
+\ColorRed{escritas à mão} até as 16:45 do sábado 28/nov/2020 na
+plataforma Classroom. Se o Classroom der algum problema mande também
+para este endereço de e-mail:
+
+
+\ssk
+
+\ColorRed{eduardoochs@gmail.com}
+
+\ssk
+
+Provas entregues após este horário não serão considerados.
+
+Durante as 24 horas do mini-teste o professor não responderá perguntas
+sobre os assuntos do mini-teste, mas você pode discutir com os seus
+colegas... \ColorRed{só que as respostas devem ser individuais}.
+
+
+\newpage
+
+% «questao-1»  (to ".questao-1")
+% (c3m201p1p 3 "questao-1")
+% (c3m201p1    "questao-1")
+% (find-es "ipython" "2020.1-C3-P1" "Questao 1")
+% (c3m201dp1p 2 "dicas")
+% (c3m201dp1    "dicas")
+
+
+{\bf Questão 1}
+
+(Total: 2.0 pts)
+
+(Baseada no exercício 2 da aula 13)
+
+\ssk
+
+Sejam $F(x,y) = x·y$ e $(x_0,y_0) = (4,2)$.
+
+a) Calcule $F_x$ e $F_y$ no ponto $(x_0,y_0)$.
+
+b) calcule a aproximação para $F_x(x_0,y_0)$ usando $Δx=0.1$.
+
+c) calcule a aproximação para $F_x(x_0,y_0)$ usando $Δx=-0.1$.
+
+d) calcule a aproximação para $F_y(x_0,y_0)$ usando $Δy=0.1$.
+
+e) calcule a aproximação para $F_y(x_0,y_0)$ usando $Δy=-0.1$.
+
+\msk
+
+Cada item vale 0.4 pts.
+
+
+% (c3m201dp1p 3 "aula-13")
+% (c3m201dp1    "aula-13")
+% (c3m201derpsp 4 "exercicio-2")
+% (c3m201derps    "exercicio-2")
+
+
+\newpage
+
+
+% «questao-2»  (to ".questao-2")
+% (c3m201p1p 4 "questao-2")
+% (c3m201p1    "questao-2")
+% (find-es "ipython" "2020.1-C3-P1" "Questao 2")
+% (c3m201dp1p 2 "aulas-7-e-8")
+% (c3m201dp1    "aulas-7-e-8")
+% (c3m201taylor3p 5 "exercicio-1")
+% (c3m201taylor3    "exercicio-1")
+% (c3m201taylor3p 9 "exercicio-4")
+% (c3m201taylor3    "exercicio-4")
+
+
+{\bf Questão 2}
+
+(Baseada no material das aulas 7 e 8)
+
+(Valor total da questão: 8.0 pts.)
+
+(Total nesta página: 3.0 pts.)
+
+\ssk
+
+Sejam $G(x,y) = x^2 + 4y^2$. $H(x,y) = \sqrt{x^2 + 4y^2}$.
+
+a) (1.0 pts) Desenhe pelo menos quatro curvas de nível
+
+de $z=G(x,y)$.
+
+b) (1.0 pts) Desenhe pelo menos quatro curvas de nível
+
+de $z=H(x,y)$.
+
+c) (0.1 pts) Calcule $∇G$.
+
+d) (0.2 pts) Calcule $∇G(3,1)$.
+
+e) (0.3 pts) Calcule $∇H$.
+
+f) (0.4 pts) Calcule $∇H(3,1)$.
+
+\msk
+
+
+\newpage
+
+{\bf Questão 2 (continuação)}
+
+(Total nesta página: 2.5 pts.)
+
+\ssk
+
+g) (1.5 pts) Digamos que $z=H(x,y)$. Faça as contas com diferenciais e encontre
+as expressões que só dependem de $x$ e $y$ --- não de $dx$, $dy$,
+$\frac{dx}{dy}$, etc --- que você pode pôr nas lacunas da igualdade
+abaixo para torná-la verdadeira:
+%
+$$dz = ▁▁▁dx + ▁▁▁dy$$
+
+h) (1.0 pts) O que acontece na (g) quando $x=3$ e $y=1$? O resultado
+que você obteve na (g) no ponto $(3,1)$ é compatível com o resultado
+que você obteve na (f)? Explique.
+
+
+\newpage
+
+{\bf Questão 2 (continuação)}
+
+(Total nesta página: 2.5 pts.)
+
+\ssk
+
+i) (1.5 pts) Digamos que $z=H(x,y)$, $y=f(x)$, e que esta $f$
+``percorre uma curva de nível da $H$'' --- ou seja, $\frac{dz}{dx}=0$.
+Encontre uma expressão que só depende de $x$ e $y$, isto é, não de
+$dx$, $dy$, $\frac{dx}{dy}$, $z$, etc, que você pode pôr na lacuna da
+igualdade abaixo para torná-la verdadeira:
+%
+$$\frac{dy}{dx} = ▁▁▁ .$$
+
+j) (1.0 pts) O que acontece na (i) quando $x=3$ e $y=1$? O resultado
+que você obteve na (i) no ponto $(3,1)$ é compatível com o resultado
+que você obteve na (f)? Explique.
+
+
+
+
+
+
+
+%\printbibliography
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C3-P1 veryclean
+make -f 2019.mk STEM=2020-1-C3-P1 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3m201p1"
+% End:

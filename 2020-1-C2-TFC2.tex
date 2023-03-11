@@ -1,0 +1,292 @@
+% (find-LATEX "2020-1-C2-TFC2.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C2-TFC2.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C2-TFC2.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C2-TFC2.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C2-TFC2.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C2-TFC2"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C2-TFC2.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-TFC2.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-TFC2.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C2-TFC2.pdf
+%               file:///tmp/2020-1-C2-TFC2.pdf
+%           file:///tmp/pen/2020-1-C2-TFC2.pdf
+% http://angg.twu.net/LATEX/2020-1-C2-TFC2.pdf
+% (find-LATEX "2019.mk")
+
+% «.defs»		(to "defs")
+% «.title»		(to "title")
+% «.exercicio-1»	(to "exercicio-1")
+% «.exercicio-2»	(to "exercicio-2")
+% «.TFC2»		(to "TFC2")
+% «.exercicio-3»	(to "exercicio-3")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+% (find-angg ".emacs" "c2q192")
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c2m201tfc2p 1 "title")
+% (c2m201tfc2    "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2020.1}
+
+\bsk
+
+Aulas 10 e 11: O TFC2
+
+(O segundo Teorema Fundamental do Cálculo)
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C2.html}
+
+\end{center}
+
+\newpage
+
+
+% «exercicio-1»  (to ".exercicio-1")
+% (c2m201tfc2p 2 "exercicio-1")
+% (c2m201tfc2    "exercicio-1")
+
+{\bf Introdução}
+
+\ssk
+
+Boa parte do que a gente vai ver hoje é uma versão melhorada das
+idéias do exercício 6 da aula passada... então comecem revisando o
+exercício 6 da aula passada (e as dicas da página 11). Link:
+
+\ssk
+
+\url{http://angg.twu.net/LATEX/2020-1-C2-TFCs.pdf}
+
+\bsk
+
+{\bf Exercício 1.}
+
+Seja $f(x) = -x^2 +4x$, como na aula passada.
+
+Sejam $a=1$ e $b=2$.
+
+\ssk
+
+a) Encontre uma antiderivada para $f$ e chame-a de $H(x)$.
+
+b) Encontre uma antiderivada $F(x)$ para $f$ que obedeça $F(a)=0$.
+
+c) Use esta $F(x)$ para calcular $\Intx{a}{b}{f(x)}$.
+
+\msk
+
+{\sl Lembre que $a=1$ e $b=2$!}
+
+
+\newpage
+
+% «exercicio-2»  (to ".exercicio-2")
+% (c2m201tfc2p 3 "exercicio-2")
+% (c2m201tfc2    "exercicio-2")
+
+{\bf Exercício 2.}
+
+Seja $f(x) = -x^2 +4x$ (de novo).
+
+Sejam $a=2$ e $b=3$.
+
+\ssk
+
+a) Encontre uma antiderivada para $f$ e chame-a de $H(x)$.
+
+b) Encontre uma antiderivada $F(x)$ para $f$ que obedeça $F(a)=0$.
+
+c) Use esta $F(x)$ para calcular $\Intx{a}{b}{f(x)}$.
+
+d) Faça o gráfico da função $D(x) = F(x) - H(x)$. Verifique que ela é
+constante. Chame de $C$ o número tal que $D(x) = C$. Verifique que
+$F(x) = H(x) + C$.
+
+
+
+\newpage
+
+No item (c) da página anterior você calculou $\Intx{a}{b}{f(x)}$ por:
+%
+$$\Intx{a}{b}{f(x)} = F(b) - F(a).$$
+
+Repare que:
+%
+$$\begin{array}{rcl}
+  \Intx{a}{b}{f(x)} &=& F(b) - F(a) \\
+                    &=& (H(b) + C) - (H(a) + C) \\
+                    &=& H(b) - H(a) \\
+  \end{array}
+$$
+
+Ou seja, dá pra calcular $\Intx{a}{b}{f(x)}$ por $H(b) - H(a)$, sem a
+gente precisar fazer o item (b), que é trabalhoso...
+
+\newpage
+
+% «TFC2»  (to ".TFC2")
+% (c2m201tfc2p 5 "TFC2")
+% (c2m201tfc2    "TFC2")
+
+{\bf O TFC2}
+
+\ssk
+
+Digamos que $f(x)$ é uma função integrável
+
+e que queremos calcular $\Intx{a}{b}{f(x)}$.
+
+Digamos que $H(x)$ é alguma antiderivada contínua de $f(x)$.
+
+(Qualquer uma serve, mas tem que ser contínua.)
+
+\ColorRed{Então (Teorema! Este é o TFC2!):}
+%
+$$\begin{array}{rcl}
+  \Intx{a}{b}{f(x)} &=& H(b) - H(a) \\
+  \end{array}
+$$
+
+\newpage
+
+% «exercicio-3»  (to ".exercicio-3")
+% (c2m201tfc2p 6 "exercicio-3")
+% (c2m201tfc2    "exercicio-3")
+
+{\bf Exercício 3.}
+
+\ssk
+
+Digamos que $g(x) = 6-x$.
+
+a) Calcule a área $\Intx{2}{4}{g(x)}$ pela fórmula da área do
+trapézio.
+
+b) Calcule a área $\Intx{4}{6}{g(x)}$ pela fórmula da área do
+trapézio.
+
+c) Use a fórmula da área do trapézio pra encontrar uma fórmula que
+calcule a área $\Intx{a}{b}{g(x)}$ para quaisquer $a,b∈[0,6]$. Teste a
+sua fórmula nos exercícios (a) e (b).
+
+d) Encontre uma antiderivada para $g(x)$.
+
+e) Use essa antiderivada pra encontrar uma fórmula para calcular
+$\Intx{a}{b}{g(x)}$ e verifique que essa fórmula é equivalente à que
+você obteve no item (c).
+
+\bsk
+
+\ColorRed{
+Agora que você entendeu bem antiderivadas
+
+faça os exercícios 4 e 5 da aula passada.
+}
+
+
+
+%\printbibliography
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C2-TFC2 veryclean
+make -f 2019.mk STEM=2020-1-C2-TFC2 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2m201tfc2"
+% End:

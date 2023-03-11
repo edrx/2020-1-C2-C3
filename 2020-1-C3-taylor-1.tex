@@ -1,0 +1,617 @@
+% (find-LATEX "2020-1-C3-taylor-1.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C3-taylor-1.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C3-taylor-1.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C3-taylor-1.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C3-taylor-1.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C3-taylor-1"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C3-taylor-1.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-taylor-1.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-taylor-1.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C3-taylor-1.pdf
+%               file:///tmp/2020-1-C3-taylor-1.pdf
+%           file:///tmp/pen/2020-1-C3-taylor-1.pdf
+% http://angg.twu.net/LATEX/2020-1-C3-taylor-1.pdf
+% (find-LATEX "2019.mk")
+
+% «.defs»		(to "defs")
+% «.title»		(to "title")
+% «.polis-e-fpolis»	(to "polis-e-fpolis")
+% «.taylor-1»		(to "taylor-1")
+% «.taylor-2»		(to "taylor-2")
+% «.taylor-3»		(to "taylor-3")
+% «.taylor-4»		(to "taylor-4")
+% «.taylor-5»		(to "taylor-5")
+% «.taylor-6»		(to "taylor-6")
+% «.taylor-7»		(to "taylor-7")
+% «.taylor-8»		(to "taylor-8")
+% «.taylors-famosas»	(to "taylors-famosas")
+% «.exercicio-4»	(to "exercicio-4")
+% «.exercicio-5»	(to "exercicio-5")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+%\printbibliography
+
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\derivs{\mathsf{derivs}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m201taylor1p 1 "title")
+% (c3m201taylor1    "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2020.1}
+
+\bsk
+
+Aulas 3 e 4: Aproximações de 1ª e 2ª ordem
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C3.html}
+
+\end{center}
+
+\newpage
+
+No final da última aula eu passei dois exercícios sobre ``adivinhar''
+trajetórias a partir dos valores de $P(t)$ e $P'(t)$ para alguns
+valores de $t$. O exercício 3 era mais difícil que o 4 -- no 3 a
+velocidade $P'(t)$ era zero em alguns dos pontos fáceis de calcular, e
+o melhor modo da gente descobrir o comportamento da trajetória $P(t)$
+em torno daqueles pontos é usando o \ColorRed{vetor aceleração},
+$P''(t)$, que é um dos assuntos de hoje.
+
+\bsk
+
+{\bf Importante:} por um erro de digitação eu acabei passando o
+exercício mais difícil antes do mais fácil, e acabei só mostrando o
+enunciado do 4 (mais fácil) pra algumas poucas pessoas por Telegram e
+só acrescentei ele ao PDF depois da aula... então: 
+
+\ColorRed{Comece refazendo o exercício 3 da aula passada e fazendo o
+  4.}
+
+
+\newpage
+
+% «polis-e-fpolis»  (to ".polis-e-fpolis")
+% (c3m201taylor1p 4 "polis-e-fpolis")
+% (c3m201taylor1    "polis-e-fpolis")
+
+{\bf Polinômios e funções polinomiais}
+
+Alguns (poucos) livros distinguem {\sl polinômios} de {\sl funções
+  polinomiais}. Um {\sl polinômio de grau $n$ em $x$} é uma expressão
+da forma
+%
+$$ a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0, $$
+%
+onde $a_n, a_{n-1}, \ldots, a_0$ são constantes, e uma {\sl função
+  polinomial em $x$} é uma função $g(x)$ para a qual existe um
+polinômio $f(x)$ tal que $g(x)=f(x)$ para todo $x$. Por exemplo,
+%
+$$ 42 (x-99)^{200} - 12 (x-99)^6 $$
+%
+é uma função polinomial em $x$ mas não um polinômio em $x$, porque os
+coeficientes $a_{200}, \ldots, a_0$ do polinômio não são dados
+explicitamente.
+
+\msk
+
+\newpage
+
+{\bf Polinômios e funções polinomiais (2)}
+
+...maaaas repare que $42 (x-99)^{200} - 12 (x-99)^6$ é um polinômio
+\ColorRed{em $x-99$}, de grau 200 e com coeficientes $b_{200}=42$,
+$b_6=12$, e zero nos outros índices. Mais formalmente,
+%
+$$\sum_{k=0}^{200} b_k (x - 99)^k = 42 (x-99)^{200} - 12 (x-99)^6$$
+%
+quando $b_{200}=42$, $b_6=12$, e $b_k=0$ nos outros índices.
+
+\bsk
+
+(Isto vai ser útil para séries de Taylor...)
+
+
+
+\newpage
+
+% «taylor-1»  (to ".taylor-1")
+% (c3m201taylor1p 5 "taylor-1")
+% (c3m201taylor1    "taylor-1")
+
+{\bf Mini-revisão de séries de Taylor}
+
+Nos meus cursos de Cálculo 2 eu costumo fazer uma introdução rápida a
+Séries de Taylor pra convencer as pessoas de que a fórmula abaixo é
+verdade...
+%
+$$e^{iθ} = \cosθ + i\senθ \qquad\qquad (*)$$
+
+Se $f:\R → \R$ a \ColorRed{Série de Taylor de $f$ em no ponto 0} é:
+%
+$$f(x) = \sum_{k=0}^∞ \frac{f^{(k)}(0)}{k!} x^k \qquad\qquad (**)$$ 
+%
+onde $f^{(0)} = f$, $f^{(1)} = f'$, $f^{(2)} = f''$, etc.
+
+\newpage
+
+% «taylor-2»  (to ".taylor-2")
+% (c3m201taylor1p 6 "taylor-2")
+% (c3m201taylor1    "taylor-2")
+
+{\bf Mini-revisão de séries de Taylor (2)}
+
+Sejam $\derivs$ e $\derivs_0$ as seguintes operações:
+
+$\derivs(f) = (f, f', f'', f''', \ldots)$
+
+$\derivs_0(f) = (f(0), f'(0), f''(0), f'''(0), \ldots)$
+
+Repare que $\derivs(f)$ retorna uma sequência infinita de funções e
+$\derivs(f)$ retorna uma sequência infinita de números.
+
+Um exemplo: se $f(x) = ax^2 + bx + c$, então:
+%
+$$\begin{array}{rclcrcl}
+  f(x)   &=& ax^2 + bx + c,    && f(0)   &=& c, \\
+  f'(x)  &=& 2ax + b,          && f'(0)  &=& b, \\
+  f''(x) &=& 2a,               && f''(0) &=& 2a, \\
+  f'''(x) &=& 0,               && f'''(0) &=& 0, \\
+  \end{array}
+$$
+
+$\derivs(f) = (ax^2 + bx + c, \; 2ax + b, \; 2a, \; 0, 0, 0, \ldots)$
+
+$\derivs_0(f) = (c, b, 2a, 0, 0, 0, \ldots)$
+
+\newpage
+
+{\bf Mini-revisão de séries de Taylor (3)}
+
+% «taylor-3»  (to ".taylor-3")
+% (c3m201taylor1p 7 "taylor-3")
+% (c3m201taylor1    "taylor-3")
+
+...e neste caso os termos do somatório são todos zero
+
+a partir de $k=3$:
+%
+$$\begin{array}{rcl}
+  f(x) &=& \displaystyle \sum_{k=0}^∞ \frac{f^{(k)}(0)}{k!} x^k \\[15pt]
+       &=& \displaystyle
+           \frac{f(0)}{0!} x^0 +
+           \frac{f(0)'}{1!} x^1 +
+           \frac{f''(0)}{2!} x^2 +
+           \frac{f'''(0)}{3!} x^3 + \ldots \\[10pt]
+       &=& c + bx + ax^2 + 0 + \ldots \\
+  \end{array}
+$$ 
+
+E neste caso a igualdade da fórmula $(**)$ é verdade.
+
+\newpage
+
+% «taylor-4»  (to ".taylor-4")
+% (c3m201taylor1p 8 "taylor-4")
+% (c3m201taylor1    "taylor-4")
+
+{\bf Mini-revisão de séries de Taylor (4)}
+
+\ssk
+
+{\bf Exercício 1} (pra você se convencer de que a fórmula $(**)$ vale
+sempre que a função $f$ for um polinômio).
+
+Seja $f(x) = a_4x^4 + a_3x^3 + a_2x^2 + a_1x^1 + a_0x^0$.
+
+\ssk
+
+a) Calcule $\derivs(f)$.
+
+b) Calcule $\derivs_0(f)$. 
+
+c) Expanda o somatório $\sum_{k=0}^∞ \frac{f^{(k)}(0)}{k!} x^k$ e
+verifique que neste caso a igualdade $(**)$ é verdade (como no slide
+anterior).
+
+
+
+\newpage
+
+% «taylor-5»  (to ".taylor-5")
+% (c3m201taylor1p 9 "taylor-5")
+% (c3m201taylor1    "taylor-5")
+
+{\bf Mini-revisão de séries de Taylor (5)}
+
+\ssk
+
+No caso geral -- em que a $f$ não é polinomial -- a expansão do
+somatório na fórmula $(**)$ dá uma soma com infinitos termos
+não-zero... e isto às vezes é formalizado desta forma:
+%
+$$f(x) = \displaystyle \lim_{N→∞} \left(\sum_{k=0}^N \frac{f^{(k)}(0)}{k!} x^k\right)$$
+
+À medida que o $N$ cresce a expressão $\sum_{k=0}^N
+\frac{f^{(k)}(0)}{k!} x^k$ -- a \ColorRed{série de Taylor de $f$ em
+  $x=0$ truncada até grau $N$} -- vira um polinômio com mais termos, e
+cada polinômio novo com mais termos que o anterior é uma aproximação
+melhor para a função $f$.
+
+\msk
+
+A série de Taylor truncada até grau $N$ às vezes vai ser chamada de
+\ColorRed{aproximação de grau $N$} ou de \ColorRed{polinômio de Taylor
+  de grau $N$}.
+
+
+
+\newpage
+
+% «taylor-6»  (to ".taylor-6")
+% (c3m201taylor1p 9 "taylor-6")
+% (c3m201taylor1    "taylor-6")
+
+{\bf Mini-revisão de séries de Taylor (6)}
+
+\ssk
+
+Os detalhes são \ColorRed{bem} complicados -- você vai ver todas as
+contas horríveis que demonstram as estimativas de erro numa matéria do
+Fábio -- mas deve dar pra entender a idéia geral a partir dos desenhos
+e animações das páginas da Wikipedia.
+
+Dê uma olhada em:
+
+\ssk
+
+\url{https://pt.wikipedia.org/wiki/S\%C3\%A9rie_de_Taylor}
+
+\url{https://en.wikipedia.org/wiki/Taylor_series}
+
+\url{https://en.wikipedia.org/wiki/Taylor_series\#Approximation_error_and_convergence}
+
+\url{https://en.wikipedia.org/wiki/Taylor\%27s_theorem}
+
+\ssk
+
+principalmente nas figuras que comparam aproximações de grau 1, 2, 3,
+etc. As páginas da Wikipedia em português têm menos figuras que as em
+inglês, então eu pus os links pras páginas em inglês também.
+
+
+% (find-es "tex" "hyperref")
+% (find-hyperrefmanualpage 25 "5.8    \\unichar")
+% (find-hyperrefmanualtext 25 "5.8    \\unichar")
+
+
+\newpage
+
+% «taylor-7»  (to ".taylor-7")
+% (c3m201taylor1p 9 "taylor-7")
+% (c3m201taylor1    "taylor-7")
+
+{\bf Mini-revisão de séries de Taylor (7)}
+
+\ssk
+
+O que vai importar pra gente agora é isto:
+
+$$\begin{array}{rcl}
+  f(x) &≈& f(0) + f'(0)x \\
+  f(x) &≈& f(0) + f'(0)x + \frac{f''(0)}{2} x^2 \\[5pt]
+  \end{array}
+$$
+
+A ``aproximação de grau 1'', $f(x) ≈ f(0) + f'(0)x$, dá uma
+aproximação bem razoável pro valor de $f(x)$ quando $x$ é pequeno, e a
+``aproximação de grau 2'', $f(x) ≈ f(0) + f'(0)x + \frac{f''(0)}{2}
+x^2$ dá uma aproximação melhor...
+
+...só que daqui a pouco nós vamos adaptar isto para funções $f$ que
+são ``trajetórias'', ou seja, que vão de $\R$ e $\R^2$. E além disso...
+
+
+
+\newpage
+
+% «taylor-8»  (to ".taylor-8")
+% (c3m201taylor1p 12 "taylor-8")
+% (c3m201taylor1     "taylor-8")
+
+{\bf Séries de Taylor em torno de pontos que não são o 0}
+
+...e além disso vamos querer trabalhar com séries de Taylor em torno
+de pontos que não são o ponto 0 -- e isso eu nunca mostro em Cálculo
+2. As fórmulas são:
+%
+$$\begin{array}{rcl}
+  f(x) &=& \displaystyle \sum_{k=0}^∞ \frac{f^{(k)}(a)}{k!} (x-a)^k \\[10pt]
+  f(x) &≈& f(a) + f'(a)(x-a) \\
+  f(x) &≈& f(a) + f'(a)(x-a) + \frac{f''(a)}{2} (x-a)^2 \\[5pt]
+  \end{array}
+$$
+
+Repare que as expressões à direita do `$=$' e dos `$≈$' são
+\ColorRed{polinômios em $(x-a)$!} Uma definição nova:
+%
+$$\derivs_a(f) = (f(a), f'(a), f''(a), f'''(a), \ldots).$$
+
+
+\newpage
+
+% «taylors-famosas»  (to ".taylors-famosas")
+
+{\bf Algumas séries de Taylor famosas}
+
+\ssk
+
+{\bf Exercício 2.} Calcule os primeiros termos de $\derivs(f)$ e
+$\derivs_0(f)$ para as funções abaixo:
+
+a) $f(x) = e^x$
+
+b) $f(x) = e^{2x}$
+
+c) $f(x) = e^{ix}$
+
+d) $f(x) = \cos x$
+
+e) $f(x) = \sen x$
+
+f) $f(x) = i\sen x$
+
+g) $f(x) = \cos x + i\sen x$ \qquad (só o $\derivs_0$)
+
+e compare os itens (c) e (g).
+
+\newpage
+
+{\bf Exercício 3.} Descubra a série de Taylor de $f(x) = e^{2x}$ no
+ponto 0. Dica: veja a página da Wikipedia em português sobre Séries de
+Taylor...
+
+\ssk
+
+\url{https://pt.wikipedia.org/wiki/S\%C3\%A9rie_de_Taylor}
+
+\ssk
+
+Ela tem alguns exemplos numa seção chamada ``Lista de série de Taylor
+de algumas funções comuns ao redor de $a=0$ (Série de Maclaurin)''.
+
+
+
+\newpage
+
+{\bf Voltando a Cálculo 3...}
+
+Nas aulas anteriores nós aprendemos a desenhar {\sl retas
+  parametrizadas} e {\sl parábolas parametrizadas}, e entendemos o que
+são o {\sl vetor velocidade} e o {\sl vetor aceleração} de uma
+trajetória...
+
+Agora vamos ver como usar retas parametrizadas como uma aproximação de
+grau 1 -- ou ``de primeira ordem'' -- para uma trajetória e parábolas
+parametrizadas como aproximações de grau 2 -- ou ``de segunda ordem''.
+
+\msk
+
+Repare que no Bortolossi essas idéias estão espalhadas pelo livro...
+
+O vetor tangente aparece no cap.6, p.197,
+
+o vetor aceleração aparece no cap.6, p.217,
+
+polinômios de Taylor de ordem 2 aparecem no cap.11, p.371
+
+polinômios de Taylor de ordem $k$ aparecem no cap.11, p.376.
+
+\newpage
+
+{\bf Aproximações de 1ª e 2ª ordem para trajetórias}
+
+\ssk
+
+Seja $f:\R→\R^2$ uma trajetória.
+
+Seja $t_0∈\R$.
+
+Definições (temporárias, vão ser melhoradas depois):
+
+\msk
+
+A {\sl aproximação de 1ª ordem para $f$ em $t=t_0$} é a reta
+  parametrizada:
+%
+$$g(t) = f(t_0) + f'(t_0)(t-t_0)$$
+
+A {\sl aproximação de 2ª ordem para $f$ em $t=t_0$} é a reta
+parametrizada:
+%
+$$h(t) = f(t_0) + f'(t_0)(t-t_0) + \frac{f''(t_0)}{2} (t-t_0)^2$$
+
+Vamos fazer alguns execícios pra aprender a desenhar e a visualizar
+essas aproximações e depois vamos ver que propriedades elas obedecem.
+
+
+\newpage
+
+% «exercicio-4»  (to ".exercicio-4")
+% (c3m201taylor1p 17 "exercicio-4")
+% (c3m201taylor1     "exercicio-4")
+
+{\bf Exercício 4.}
+
+Sejam $f(t)=(t,\cos t)$ e $t_0=0$.
+
+Represente graficamente num gráfico só:
+
+a) O traço de $f(t)$ e os pontos $f(0)$, $f(\frac{\pi}{2})$, $f(\pi)$,
+
+b) $f(t_0) + f'(t_0)$, 
+
+c) $f(t_0) + f''(t_0)$, 
+
+d) O traço de $g(t)$ -- lembre que $g(t) = f(t_0) + f'(t_0)(t-t_0)$ --
+e os pontos $g(t_0)$ e $g(t_0+1)$,
+
+
+\newpage
+
+% «exercicio-5»  (to ".exercicio-5")
+% (c3m201taylor1p 18 "exercicio-5")
+% (c3m201taylor1     "exercicio-5")
+
+{\bf Exercício 5.}
+
+Sejam $f(t)=(t,\cos t)$ e $t_0=\ColorRed{π}$.
+
+Represente graficamente num gráfico só:
+
+a) O traço de $f(t)$ e os pontos $f(0)$, $f(\frac{\pi}{2})$, $f(\pi)$,
+
+b) $f(t_0) + f'(t_0)$, 
+
+c) $f(t_0) + f''(t_0)$, 
+
+d) O traço de $g(t)$ -- lembre que $g(t) = f(t_0) + f'(t_0)(t-t_0)$ --
+e os pontos $g(t_0)$ e $g(t_0+1)$,
+
+e) Lembre que $h(t) = f(t_0) + f'(t_0)(t-t_0) + \frac{f''(t_0)}{2}
+(t-t_0)^2$. Represente graficamente os pontos $h(t_0)$, $h(t_0+1)$,
+$h(t_0-1)$, $h(t_0+2)$, $h(t_0-2)$.
+
+f) \ColorRed{(Mais difícil)} Use o que você descobriu no item (e) para
+representar graficamente o traço de $h(t)$ -- que vai ser uma parábola
+parametrizada.
+
+\msk
+
+\ColorRed{Dica: o seu desenho não precisa ficar muito preciso -- use
+  $π≈3$.}.
+
+
+
+
+
+
+
+% (find-bortolossi6page (+ -186 197) "6.2 O vetor tangente a uma curva parametrizada")
+% (find-bortolossi6page (+ -186 199)   "limite de vetores secantes")
+% (find-bortolossi6page (+ -186 215)   "A ciclóide")
+% (find-bortolossi6page (+ -186 217)   "O vetor aceleração")
+% (find-bortolossi11page (+ -364 371) "11.2. Polinômios de Taylor")
+% (find-bortolossi11page (+ -364 376)   "Polinômios de Taylor de ordem k")
+
+
+
+
+
+\ssk
+
+
+
+
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C3-taylor-1 veryclean
+make -f 2019.mk STEM=2020-1-C3-taylor-1 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3m201taylor1"
+% End:

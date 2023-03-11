@@ -1,0 +1,638 @@
+% (find-LATEX "2020-1-C2-TFC2-2.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C2-TFC2-2.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C2-TFC2-2.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C2-TFC2-2.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C2-TFC2-2.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C2-TFC2-2"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C2-TFC2-2.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-TFC2-2.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-TFC2-2.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C2-TFC2-2.pdf
+%               file:///tmp/2020-1-C2-TFC2-2.pdf
+%           file:///tmp/pen/2020-1-C2-TFC2-2.pdf
+% http://angg.twu.net/LATEX/2020-1-C2-TFC2-2.pdf
+% (find-LATEX "2019.mk")
+% (find-C2-aula-links "2020-1-C2-TFC2-2" "11" "tfc22")
+
+% «.title»			(to "title")
+% «.intro»			(to "intro")
+% «.integral-indefinida»	(to "integral-indefinida")
+% «.exercicio-1»		(to "exercicio-1")
+% «.exercicio-2»		(to "exercicio-2")
+% «.subst-defs»			(to "subst-defs")
+% «.TFC2-TFC2I-S3-S3I»		(to "TFC2-TFC2I-S3-S3I")
+% «.S1»				(to "S1")
+% «.dica-importantissima»	(to "dica-importantissima")
+% «.exercicio-3»		(to "exercicio-3")
+% «.exercicio-4»		(to "exercicio-4")
+% «.exercicio-5»		(to "exercicio-5")
+%
+% «.exerc-jose-victor»		(to "exerc-jose-victor")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+\def\Subst#1{\bmat{#1}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+% (find-angg ".emacs" "c2q192")
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c2m201tfc22p 1 "title")
+% (c2m201tfc22a   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2020.1}
+
+\bsk
+
+Aula 11: Integração por TFC2 e chutar e testar
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C2.html}
+
+\end{center}
+
+\newpage
+
+% «integral-indefinida»  (to ".integral-indefinida")
+% (c2m201tfc22p 2 "integral-indefinida")
+% (c2m201tfc22a   "integral-indefinida")
+
+{\bf A integral indefinida}
+
+\ssk
+
+Na aula passada nós vimos que pra dá pra calcular integrais de uma
+função $f(x)$ usando uma antiderivada contínua de $f(x)$. Se $F(x)$ é
+uma antiderivada contínua de $f(x)$ então:
+%
+$$\Intx{a}{b}{f(x)} \;\; = \;\; F(b) - F(a)$$
+
+Nós vamos interpretar a notação da integral indefinida, que é
+$\intx{\ldots}$ sem os limites de integração, como uma espécie de
+inversa da operação $\frac{d}{dx}$: pra nós as duas expressões abaixo
+vão ser exatamente equivalentes:
+%
+$$\begin{array}{ccr}
+  \displaystyle \int {f(x)} \, dx &=& F(x) \\
+                f(x)  &=& \frac{d}{dx} F(x) \\
+  \end{array}
+$$
+
+\newpage
+
+Depois eu vou explicar porque é que a maioria dos livros prefere
+escrever sempre o `$+\;C$' em
+%
+$$\int {f(x)} \, dx \;\; = \;\; F(x) \ColorRed{\;+\;C}$$
+%
+e porque é que eu prefiro não usá-lo.
+
+\msk
+
+Outra coisa: a partir de agora \ColorRed{quase} todas as nossas
+funções vão ser contínuas e deriváveis, e por isso eu \ColorRed{em
+  geral} vou falar só de ``antiderivadas'' ao invés de ``antiderivadas
+contínuas''.
+
+
+\newpage
+
+% «exercicio-1»  (to ".exercicio-1")
+% (c2m201tfc22p 4 "exercicio-1")
+% (c2m201tfc22a   "exercicio-1")
+
+{\bf Exercício 1.}
+
+\ssk
+
+Encontre as seguintes antiderivadas por chutar \ColorRed{e testar}:
+
+\ssk
+
+a) $\intx {\cos x}$
+
+b) $\intx {\sen x}$
+
+c) $\intx {\cos 3x}$
+
+d) $\intx {\cos (3x+4)}$
+
+e) $\intx {2 \cos (3x+4)}$
+
+f) $\intx {a \cos (bx+c)}$
+
+g) $\intx {\sen x + 2 \cos (3x+4)}$
+
+h) $\intx {e^x}$
+
+i) $\intx {e^{x+4}}$
+
+j) $\intx {e^{3x+4}}$
+
+k) $\intx {2e^{3x+4}}$
+
+l) $\intx {ae^{bx+c}}$
+
+
+
+\newpage
+
+
+% «exercicio-2»  (to ".exercicio-2")
+% (c2m201tfc22p 5 "exercicio-2")
+% (c2m201tfc22a   "exercicio-2")
+
+{\bf Exercício 2.}
+
+\ssk
+
+Calcule:
+
+\bsk
+
+$$\begin{array}{rl}
+  a) & \displaystyle \Intx{10}{20}{2\cos(3x+4)} \\[25pt]
+  b) & \displaystyle \Intx{d}{e}{a\cos(bx+c)} \\
+  \end{array}
+$$
+
+
+\newpage
+
+
+{\bf Integração por substituição}
+
+\ssk
+
+\def\und#1#2{#1}
+
+A fórmula mais útil pra encontrar antiderivadas difíceis é exatamente
+uma das mais difíceis de entender... ela é fácil de decorar na versão
+com integrais indefinidas, que é:
+%
+$$\displaystyle \intx{
+    f(\und{g(x)}{u}) \und{g'(x)}{\frac{du}{dx}}
+  } = \intu {f(u)}
+$$
+
+\def\und#1#2{\underbrace{\textstyle #2}_{#1}}
+
+Se definirmos que à direita do `$=$' o $u$ é uma variável mas à esquerda ele é uma abreviação para $g(x)$ então podemos reescrever a fórmula acima como:
+%
+$$\displaystyle \intx{
+    f(u) \frac{du}{dx}
+  } = \intu {f(u)}
+$$
+
+\newpage
+
+
+{\bf Integração por substituição (2)}
+
+\ssk
+
+...só que a fórmula da página anterior tem várias gambiarras
+brabíssimas que nós só vamos conseguir formalizar daqui a bastante
+tempo, então nós vamos começar entendendo a versão dela que usa
+integrais definidas, que é:
+%
+$$\displaystyle \Intx{a}{b}{f(g(x))g'(x)} = \Intu{g(a)}{g(b)}{f(u)}
+$$
+
+\newpage
+
+% (c2mo)
+% (c2mop)
+
+% «subst-defs»  (to ".subst-defs")
+% (c2m192p 2 "subst-defs-formulas")
+% (c2m192    "subst-defs-formulas")
+
+\def\pfo#1{\mathsf{[#1]}}
+\def\D{\displaystyle}
+
+% Difference with mathstrut
+\def\Difms #1#2#3{\left. \mathstrut #3 \right|_{s=#1}^{s=#2}}
+\def\Difmu #1#2#3{\left. \mathstrut #3 \right|_{u=#1}^{u=#2}}
+\def\Difmx #1#2#3{\left. \mathstrut #3 \right|_{x=#1}^{x=#2}}
+\def\Difmth#1#2#3{\left. \mathstrut #3 \right|_{θ=#1}^{θ=#2}}
+
+\def\iequationbox#1#2{
+    \left(
+    \begin{array}{rcl}
+    \D{ #1 } &=& \D{ #2 } \\
+    \end{array}
+    \right)
+  }
+\def\isubstbox#1#2#3#4#5{{
+    \def\veq{\rotatebox{90}{$=$}}
+    \def\ph{\phantom}
+    \left(
+    \begin{array}{rcl}
+    \D{ #1 } &=& \D{ #2 } \\
+    {\veq#3} \\
+    \D{ #4 } &=& \D{ #5 } \\
+    \end{array}
+    \right)
+  }}
+\def\isubstboxT#1#2#3#4#5#6{{
+    \def\veq{\rotatebox{90}{$=$}}
+    \def\ph{\phantom}
+    \left(
+    \begin{array}{rcl}
+    \multicolumn{3}{l}{\text{#6}} \\%[5pt]
+    \D{ #1 } &=& \D{ #2 } \\
+    {\veq#3} \\
+    \D{ #4 } &=& \D{ #5 } \\
+    \end{array}
+    \right)
+  }}
+
+% Definição das fórmulas para integração por substituição.
+% Algumas são pmatrizes 3x3 usando isubstbox.
+
+\def\TFCtwo{
+  \iequationbox {\Intx{a}{b}{F'(x)}}
+                {\Difmx{a}{b}{F(x)}}
+}
+\def\TFCtwoI{
+  \iequationbox {\intx{F'(x)}}
+                {F(x)}
+}
+
+\def\Sone{
+  \isubstbox
+    {\Difmx{a}{b}{f(g(x))}}  {\Intx{a}{b}{f'(g(x))g'(x)}}
+    {\ph{mmm}}
+    {\Difmu{g(a)}{g(b)}{f(u)}} {\Intu{g(a)}{g(b)}{f'(u)}}
+}
+\def\SoneI{
+  \isubstbox
+    {f(g(x))} {\intx{f'(g(x))g'(x)}}
+    {\ph{m}}
+    {f(u)}    {\intu{f'(u)}}
+}
+
+\def\Stwo{
+  \isubstboxT
+    {\Difmx{a}{b}{F(g(x))}}   {\Intx{a}{b}{f(g(x))g'(x)}}
+    {\ph{mmm}}
+    {\Difmu{g(a)}{g(b)}{F(u)}}  {\Intu{g(a)}{g(b)}{f(u)}}
+    {Se $F'(x)=f(x)$ então:}
+}
+\def\StwoI{
+  \isubstboxT
+    {F(g(x))}  {\intx{f(g(x))g'(x)}}
+    {\ph{m}}
+    {F(u)}     {\intu{f(u)}}
+    {Se $F'(x)=f(x)$ então:}
+}
+
+\def\Sthree{
+  \iequationbox {\Intx{a}{b}{f(g(x))g'(x)}}
+                {\Intu{g(a)}{g(b)}{f(u)}}
+}
+\def\SthreeI{
+  \iequationbox {\intx{f(g(x))g'(x)}}
+                {\intu{f(u)}
+                 \qquad [u=g(x)]
+                }
+  % [u=g(x)]
+}
+
+% \newpage
+
+% «TFC2-TFC2I-S3-S3I»  (to ".TFC2-TFC2I-S3-S3I")
+% (c2m201tfc22p 8 "TFC2-TFC2I-S3-S3I")
+% (c2m201tfc22a   "TFC2-TFC2I-S3-S3I")
+
+{\bf Integração por substituição (3)}
+
+\ssk
+
+Vamos dar nomes para algumas estas fórmulas:
+%
+$$\begin{array}[t]{rcl}
+  %\text{Fórmulas}:        \\[5pt]
+  \pfo{TFC2} &=& \TFCtwo  \\
+ \pfo{TFC2I} &=& \TFCtwoI \\
+   %\pfo{S1} &=& \Sone    \\
+   %\pfo{S2} &=& \Stwo    \\
+    \pfo{S3} &=& \Sthree  \\
+  %\pfo{S1I} &=& \SoneI   \\
+  %\pfo{S2I} &=& \StwoI   \\
+   \pfo{S3I} &=& \SthreeI
+  \end{array}
+$$
+
+A notação ``$\Difmx{a}{b}{F(x)}$'' se pronuncia ``a diferença do valor
+de $F(x)$ entre $x=a$ e $x=b$'' e é definida por: $\Difmx{a}{b}{F(x)}
+= F(b) - F(a)$.
+
+\newpage
+
+% «S1»  (to ".S1")
+% (c2m201tfc22p 9 "S1")
+% (c2m201tfc22a   "S1")
+
+{\bf Integração por substituição (4)}
+
+\ssk
+
+As fórmulas com ``I'' no nome usam integrais indefinidas e são mais
+abstratas do que as sem ``I''. A fórmula $\pfo{S3}$ é consequência
+desta aqui, que é uma demonstração composta de três igualdades fáceis
+de provar:
+
+$$\begin{array}[t]{rcl}
+   \pfo{S1} &=& \Sone    \\
+   %\pfo{S2} &=& \Stwo    \\
+  \end{array}
+$$
+
+\newpage
+
+% «dica-importantissima»  (to ".dica-importantissima")
+% (c2m201tfc22p 10 "dica-importantissima")
+% (c2m201tfc22a    "dica-importantissima")
+
+{\bf Dica importantíssima:}
+
+Se estivermos fazendo as coisas bem passo a passo,
+
+isto está certo:
+%
+$$(f(2+3)) \Subst{f(x):=\sen x} = \sen(2+3)$$
+
+e isto está \ColorRed{errado},
+%
+$$(f(2+3)) \Subst{f(x):=\sen x} = \sen(5)$$
+
+porque aqui além da substituição indicada no ``$\Subst{f(x):=\sen
+  x}$''
+
+a gente substituiu o $2+3$ por $5$.
+
+
+
+\newpage
+
+% «exercicio-3»  (to ".exercicio-3")
+% (c2m201tfc22p 11 "exercicio-3")
+% (c2m201tfc22a    "exercicio-3")
+
+{\bf Exercício 3.}
+
+Encontre o resultado das substituições:
+
+\msk
+
+a) $\pfo{TFC2}\Subst{F(x) := f(g(x))}$
+
+b) $\pfo{TFC2}\Subst{x:=u}$
+
+c) $\pfo{TFC2}\Subst{x:=u}\subst{a:=g(a) \\ b:=g(b) \\ F(u):=f(u)\\}$
+
+E verifique que os itens (a) e (c) provam
+
+as duas igualdades horizontais da $\pfo{S1}$.
+
+\msk
+
+Além disso verifique que:
+%
+$$\Difmx{a}{b}{f(g(x))}
+  \;\;=\;\; f(g(b)) - f(g(a))
+  \;\;=\;\;
+  \Difmu{g(a)}{g(b)}{f(u)}
+$$
+
+\newpage
+
+% «exercicio-4»  (to ".exercicio-4")
+% (c2m201tfc22p 12 "exercicio-4")
+% (c2m201tfc22a    "exercicio-4")
+
+{\bf Exercício 4.}
+
+\ssk
+
+Encontre o resultado das substituições:
+
+\msk
+
+a) $\pfo{S1} \Subst{a:=10 \\ b:=20}$
+
+b) $\pfo{S1} \Subst{f(u) := \sen(u) \\ g(x) := 3x+4 \\ a:=10 \\ b:=20}$
+
+\bsk
+
+Obs: em cada uma delas o resultado da substituição é uma série de três
+igualdades arrumada num formato bem parecido com o da $\pfo{S1}$
+original.
+
+
+
+
+\newpage
+
+No exercício 1 você encontrou um monte de antiderivadas, e
+
+algumas delas servem como {\sl fórmulas de integração.}
+
+Por exemplo:
+
+
+$$\begin{array}{ccr}
+                      a \cos(bx+c) &=& \frac{d}{dx} (\frac{a}{b}\sen(bx+c)) \\
+  \displaystyle \int {a \cos(bx+c)} \, dx &=&        \frac{a}{b}\sen(bx+c) \\
+  \end{array}
+$$
+
+Em geral pra resolver integrais a gente vai ter que encontrar alguma
+substituição que transforme uma fórmula de integração que conhecemos
+em numa fórmula que resolve a integral que queremos resolver... por
+exemplo, sabemos que $\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)$ sempre
+vale, e portanto:
+%
+$$ \intx {f'(g(x))g'(x)} \;\; = \;\; f(g(x)) $$
+
+% exemplo, sabemos que $\frac{d}{dx}(a \, f(g(x))) = a \, f'(g(x))g'(x)$, e
+% portanto
+% %
+% $$ \intx {a f'(g(x))g'(x)} \;\; = \;\; a \, f(g(x)) $$
+
+\newpage
+
+% «exercicio-5»  (to ".exercicio-5")
+% (c2m201tfc22p 14 "exercicio-5")
+% (c2m201tfc22a    "exercicio-5")
+
+{\bf Exercício 5.}
+
+\ssk
+
+\def\rq{\ColorRed{?}}
+
+Descubra como completar a substituição abaixo pra
+
+que os dois `$=$'s sejam verdade. O primeiro `$=$' é uma
+
+substituição bem passo a passo, como na
+
+``Dica Importantíssima'' do slide 10.
+
+$$\begin{array}{rcl}
+  \left( f'(g(x))g'(x) \right)
+  \Subst{f(u) := \rq \\ f'(u) := \rq \\ g(x) := 3x+4 \\ g'(x) := \rq}
+    &=& \rq \\
+    &=& 2 \cos(3x+4) \\
+  \end{array}
+$$
+
+\newpage
+
+{\bf Dica:} as linhas ``$f'(u) := \rq$'' e ``$g'(x) := \rq$'' na
+substituição
+
+da página anterior são um truque pra ajudar a gente a se
+
+enrolar menos... a gente usou isso na primeira aula, no
+
+slide 12. Dê uma olhada! Link:
+
+\ssk
+
+\url{http://angg.twu.net/LATEX/2020-1-C2-intro.pdf}
+
+% (c2m201introp 12 "acrescentamos")
+% (c2m201intro     "acrescentamos")
+
+
+
+
+
+% (find-apexcalculuspage (+ 924 43) "Integration")
+
+
+
+
+% Exercícios de somatório pro José Victor:
+% «exerc-jose-victor»  (to ".exerc-jose-victor")
+% 
+% Digamos que $g(x)=6-x$.
+% 
+% \msk
+% 
+% a) Calcule BEM passo a passo:
+% 
+% $$\sum_{i=2}^{4} \left( \frac{g(4)+g(2)}{2} · (g(4)-g(2)) \right)$$
+% 
+% \bsk
+% 
+% b) Calcule BEM passo a passo:
+% 
+% $$\sum_{i=2}^{4} \left( \frac{g(a_i)+g(b_i)}{2} · (b_i - a_i) \right)$$
+
+
+
+%\printbibliography
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C2-TFC2-2 veryclean
+make -f 2019.mk STEM=2020-1-C2-TFC2-2 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2m201tfc22"
+% End:

@@ -1,0 +1,292 @@
+% (find-LATEX "2020-1-C3-superficies-2.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C3-superficies-2.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C3-superficies-2.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C3-superficies-2.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C3-superficies-2.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C3-superficies-2"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C3-superficies-2.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-superficies-2.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-superficies-2.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C3-superficies-2.pdf
+%               file:///tmp/2020-1-C3-superficies-2.pdf
+%           file:///tmp/pen/2020-1-C3-superficies-2.pdf
+% http://angg.twu.net/LATEX/2020-1-C3-superficies-2.pdf
+% (find-LATEX "2019.mk")
+% (find-C3-aula-links "2020-1-C3-superficies-2" "10" "sups2")
+
+
+% «.defs»		(to "defs")
+% «.title»		(to "title")
+% «.exercicio-1»	(to "exercicio-1")
+% «.exerc-1-conjuntos»	(to "exerc-1-conjuntos")
+% «.outros-cortes»	(to "outros-cortes")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m201sups2p 1 "title")
+% (c3m201sups2    "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2020.1}
+
+\bsk
+
+Aulas 11 e 12: Alguns truques para visualizar superfícies
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C3.html}
+
+\end{center}
+
+\newpage
+
+A última aula terminou com um exercício bem importante -- o exercício
+2 -- que acho que ninguém conseguiu fazer durante a aula, todo mundo
+deixou pra depois... link:
+
+% (c3m201sups1p 11 "exercicio-2")
+% (c3m201sups1     "exercicio-2")
+
+\ssk
+
+\url{http://angg.twu.net/LATEX/2020-1-C3-superficies-1.pdf}
+
+\msk
+
+As expressões nos `$\ldots$' em
+%
+$$dz = \ldots dx + \ldots dy$$
+%
+vão poder ser interpretadas de vários jeitos -- por exemplo como
+derivadas parciais (cap.5 do Bortolossi), como derivadas direcionais
+(cap.8), ou como coeficientes do plano tangente (seção 7.2)... ou
+seja, estamos estudando exemplos que vão nos preparar pra entender um
+monte de conceitos importantes.
+
+Vamos começar a aula de hoje vendo mais técnicas que vão nos ajudar a
+visualizar superfícies e que também vão nos ajudar com esses conceitos
+que vão vir depois.
+
+\newpage
+
+% «exercicio-1»  (to ".exercicio-1")
+% (c3m201sups2p 3 "exercicio-1")
+% (c3m201sups2    "exercicio-1")
+
+{\bf Exercício 1}
+
+\ssk
+
+Sejam:
+
+$ F(x,y) =
+\begin{cases}
+  \sqrt{5^2 - x^2 - y^2} & \text{quando $5^2 - x^2 - y^2≥0$}, \\
+  0 & \text{quando $5^2 - x^2 - y^2<0$,} \\
+ \end{cases}
+$
+
+e $(x_0,y_0)=(2,4)$.
+
+\msk
+
+a) Faça o diagrama de numerozinhos para esta função $F$, com $x$ e $y$
+assumindo todos os valores inteiros de $-7$ até $7$. Use uma
+calculadora pra aproximar o $z$ com precisão de dois dígitos -- por
+exemplo, $F(1,0) = \sqrt{24} ≅ 4.90$.
+
+\msk
+
+{\sl Obs: quando você descobrir certas simetrias você vai ver que você
+  vai precisar calcular no máximo 12 raízes quadradas.}
+
+\newpage
+
+% «exerc-1-conjuntos»  (to ".exerc-1-conjuntos")
+% (c3m201sups2p 4 "exerc-1-conjuntos")
+% (c3m201sups2    "exerc-1-conjuntos")
+
+% «outros-cortes»  (to ".outros-cortes")
+% (c3m192p 1 "outros-cortes")
+% (c3m192    "outros-cortes")
+
+{\bf Exercício 1 (continuação)}
+
+\ssk
+
+Sejam:
+%
+$$\begin{array}{ccl}
+    S      &=& \setofxyzst{z = F(x,y)} \\
+    A_3    &=& \setofxyzst{z = F(x,y), \; z=3} \\
+    A_4    &=& \setofxyzst{z = F(x,y), \; z=4} \\
+    A_5    &=& \setofxyzst{z = F(x,y), \; z=5} \\
+    A_0    &=& \setofxyzst{z = F(x,y), \; z=0} \\
+    A_{-1} &=& \setofxyzst{z = F(x,y), \; z=-1} \\
+    B      &=& \setofxyzst{z = F(x,y), \; x=x_0} \\
+    B'     &=& \setofst   {(y,z)∈\R^2} {z=F(x_0,y)} \\
+    C      &=& \setofxyzst{z = F(x,y), \; y=y_0} \\
+    C'     &=& \setofst   {(x,z)∈\R^2} {z=F(x,y_0)} \\
+    D_3    &=& \setofxyst {F(x,y) = 3} \\
+    D_4    &=& \setofxyst {F(x,y) = 4} \\
+  \end{array}
+$$
+
+
+\newpage
+
+{\bf Exercício 1 (continuação)}
+
+\ssk
+
+b) O que são os conjuntos $S, \ldots, D_4$ definidos na página
+anterior? Para cada um deles visualize-o e depois tente desenhá-lo em
+2D ou 3D de um jeito que ajudaria os seus colegas a entender que
+conjunto é este. Inspire-se nos desenhos das páginas 83 a 98 do
+capítulo 3 do Bortolossi. Complemente-os com explicações em português
+quando você achar que os desenhos sozinhos não são claros o
+suficiente.
+
+\msk
+
+c) Quais dos conjuntos $S, \ldots, D_4$ são funções de $\R$ em $\R$?
+
+\msk
+
+d) Quais dos conjuntos $S, \ldots, D_4$ são curvas de nível?
+
+\msk
+
+e) Qual é a derivada da função $z=F(x_0,y)$ em $y=y_0$?
+
+\msk
+
+f) Qual é a derivada da função $z=F(x,y_0)$ em $x=x_0$?
+
+
+
+
+
+% (find-books "__analysis/__analysis.el" "bortolossi")
+% (find-bortolossi3page (+ -78  81) "3.2. Funções de duas variáveis")
+% (find-bortolossi3page (+ -78  83)   "Definição 3.2. Funções de duas variáveis")
+% (find-bortolossi3page (+ -78  86)   "Vamos tentar outros cortes. (Figs: pp.90-95)")
+% (find-bortolossi3page (+ -78  93)   "Exemplo 3.2. Sela de cavalo.")
+
+% (find-bortolossi5page (+ -161 162) "5. Derivadas parciais")
+
+% (find-bortolossi7page (+ -238 239) "7. Aproximação linear e a regra da cadeia")
+% (find-bortolossi7page (+ -238 242) "7.2. Aproximação linear em Cálculo 2")
+% (find-bortolossi7page (+ -238 243)    "plano tangente")
+% (find-bortolossi7page (+ -238 252)    "Teorema 7.3")
+% (find-bortolossi7page (+ -238 261)    "Teorema 7.6")
+
+% (find-bortolossi8page (+ -290 291) "8. Derivadas direcionais e o vetor gradiente")
+
+
+
+%\printbibliography
+
+
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C3-superficies-2 veryclean
+make -f 2019.mk STEM=2020-1-C3-superficies-2 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3m201sups2"
+% End:

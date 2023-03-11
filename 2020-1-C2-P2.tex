@@ -1,0 +1,373 @@
+% (find-LATEX "2020-1-C2-P2.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C2-P2.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2020-1-C2-P2.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C2-P2.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C2-P2.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C2-P2.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C2-P2"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C2-P2.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-P2.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-P2.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C2-P2.pdf
+%               file:///tmp/2020-1-C2-P2.pdf
+%           file:///tmp/pen/2020-1-C2-P2.pdf
+% http://angg.twu.net/LATEX/2020-1-C2-P2.pdf
+% (find-LATEX "2019.mk")
+% (find-C2-aula-links "2020-1-C2-P2" "p2" "p2")
+
+% «.dicas»		(to "dicas")
+% «.questao-1»		(to "questao-1")
+% «.questao-2»		(to "questao-2")
+% «.questao-3»		(to "questao-3")
+% «.gabarito-1b»	(to "gabarito-1b")
+% «.gabarito-1c»	(to "gabarito-1c")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+%\printbibliography
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+\def\D    {\displaystyle}
+\def\ph   {\phantom}
+\def\veq  {\rotatebox{90}{$=$}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+\setlength{\parindent}{0em}
+\def\T(Total: #1 pts){{\bf(Total: #1 pts)}}
+\def\T(Total: #1 pts){{\bf(Total: #1)}}
+\def\B       (#1 pts){{\bf(#1 pts)}}
+% Usage:
+% 1) \T(Total: 2.34 pts) Foo
+% a) \B(0.45 pts) Bar
+
+% (find-angg ".emacs" "c2q192")
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2020.1}
+
+\bsk
+
+P2 (Segunda prova)
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C2.html}
+
+\end{center}
+
+\newpage
+
+% «regras»  (to ".regras")
+% (c2m201p2p 2 "regras")
+% (c2m201p2     "regras")
+% (c2m201p1p 2 "regras")
+% (c2m201p1    "regras")
+
+{\bf Regras para a P2:}
+
+\ssk
+
+As questões da P1 serão disponibilizadas às 18:00 da quarta
+02/dez/2020 para uma turma e às 13:00 da quinta 03/dez/2020 para a
+outra, e você deverá entregar as suas respostas \ColorRed{escritas à
+  mão} até 48 horas depois do momento em que a prova foi
+disponibilizada para a sua turma na plataforma Classroom. Se o
+Classroom der algum problema mande também para este endereço de
+e-mail:
+
+\ssk
+
+\ColorRed{eduardoochs@gmail.com}
+
+\ssk
+
+Provas entregues após este horário não serão considerados.
+
+Durante as 48 horas da prova nem o professor nem o monitor responderão
+perguntas sobre os assuntos da prova, mas você pode discutir com os
+seus colegas e até com as pessoas do grupo da outra turma...
+\ColorRed{só que as respostas devem ser individuais}.
+
+
+% \newpage
+% 
+% % «dicas»  (to ".dicas")
+% 
+% {\bf Dicas}
+% 
+% \ssk
+% 
+% Os assuntos desta prova estão
+
+
+
+\newpage
+
+% «questao-1»  (to ".questao-1")
+% (c2m201p2p 3 "questao-1")
+% (c2m201p2    "questao-1")
+
+{\bf Questão 1}
+
+\T(Total: 2.0 pts)
+
+\ssk
+
+a) \B(0.5 pts) Faça o gráfico da função $\arcsen x$. Lembre que o
+domínio dela é o conjunto $[-1,1]$.
+
+b) \B(0.5 pts) Reveja o vídeo sobre como provar que $\frac{d}{dx} \ln
+x = \frac 1x$ que eu preparei pra aula sobre a integração por frações
+parciais. Adapte o método dele para o $\arcsen$: calcule $\frac{d}{dθ}
+\arcsen \sen θ$ de dois jeitos diferentes, e use isto pra mostrar que
+%
+$$\arcsen'(\sen θ)\sqrt{1-(\senθ)^2} = 1.$$
+
+c) \B(1.0 pts) Calcule $\frac{d}{ds} \arcsen s$. Seja bem claro e
+detalhado na sua solução.
+
+
+\newpage
+
+% «questao-2»  (to ".questao-2")
+% (c2m201p2p 4 "questao-2")
+% (c2m201p2    "questao-2")
+
+{\bf Questão 2}
+
+\T(Total: 2.0 pts)
+
+\ssk
+
+Faça algo parecido para calcular $\frac{d}{dt} \arctan t$. Aqui você
+vai precisar das identidades trigonométricas para tangente e secante
+do final dos slides sobre substituição trigonométrica.
+
+\newpage
+
+% «questao-3»  (to ".questao-3")
+% (c2m201p2p 5 "questao-3")
+% (c2m201p2    "questao-3")
+
+{\bf Questão 3}
+
+\T(Total: 6.0 pts)
+
+\ssk
+
+a) \B(2.5 pts) Calcule
+%
+$$\intt {t^0 \sqrt{1+t^2}^{-2}}$$
+%
+usando a fórmula do final dos slides sobre substituições
+trigonométricas que transforma $\intt {t^α \sqrt{1+t^2}^β}$ em algo
+mais fácil de integrar.
+
+b) \B(1.5 pts) Calcule
+%
+$$\intx{\frac{1}{1+x^2}}.$$
+
+c) \B(2.0 pts) Calcule
+%
+$$\intx{\frac{1}{4x^2 + 1}}.$$
+
+
+
+\newpage
+
+% «gabarito-1b»  (to ".gabarito-1b")
+% (c2m201p2p 99 "gabarito-1b")
+% (c2m201p2     "gabarito-1b")
+
+{\bf Gabarito parcial}
+
+\def\arrayl #1{\begin{array}{l}#1\end{array}}
+\def\parrayl#1{\left(\arrayl{#1}\right)}
+
+% (find-LATEX "2020-1-C2-fracs-parcs.tex" "2020_deriv_ln.mp4")
+
+\ssk
+
+1b) Neste vídeo
+
+\url{http://angg.twu.net/eev-videos/2020_deriv_ln.mp4}
+
+nós vimos esta demonstração:
+%
+$$\arrayl{
+    \text{Se $f(g(x)) = x$ então:} \\
+    \ddx f(g(x)) = \ddx x = 1 \\[2pt]
+    \ph{mmm}\veq \\
+    % \ddx f(g(x)) = 
+    f'(g(x))g'(x) \\
+  }
+$$
+
+substituindo $f(u)$ por $\arcsen u$ e $g(x)$ por $\sen x$ na
+demonstração acima obtemos:
+%
+$$\arrayl{
+    \text{Se $\arcsen(\sen(x)) = x$ então:} \\
+    \ddx \arcsen(\sen(x)) = \ddx x = 1 \\[2pt]
+    \ph{mmm}\veq \\
+    % \ddx \arcsen(\sen(x)) =
+    \arcsen'(\sen(x))\sen'(x) \\
+  }
+$$
+
+\newpage
+
+Então temos:
+%
+$$\text{Se $\arcsen(\sen(θ)) = θ$ então $1 = \arcsen'(\sen(θ))\sen'(θ)$.}
+$$
+
+Quando $-\fracπ2 ≤ θ ≤ \fracπ2$ temos $\arcsen(\sen(θ)) = θ$, e aí:
+%
+$$\begin{array}{rcl}
+  1 &=& \arcsen'(\sen(θ))\sen'(θ) \\
+    &=& \arcsen'(\sen(θ))\cos(θ) \\
+    &=& \arcsen'(\sen(θ))\sqrt{1-\sen^2θ}. \\
+  \end{array}
+$$
+
+A terceira igualdade acima só vale para certos valores de $θ$... mas
+quando $θ$ está no intervalo $[-\fracπ2,\fracπ2]$ temos $\cos(θ)≥0$ e
+portanto $\cos(θ) = \sqrt{1-\sen^2θ}$. A maioria dos livros
+``básicos'' ignora que precisamos ter $-\fracπ2 ≤ θ ≤ \fracπ2$ --- e
+eu não esperava que alguém mencionasse a condição $-\fracπ2 ≤ θ ≤
+\fracπ2$ nesta prova.
+
+\newpage
+
+% «gabarito-1c»  (to ".gabarito-1c")
+% (c2m201p2p 8 "gabarito-1c")
+% (c2m201p2    "gabarito-1c")
+
+1c) Se substituirmos $θ$ por $\arcsen s$ em 
+%
+$$1 = \arcsen'(\sen(θ))\sqrt{1-\sen^2θ}
+$$
+
+obtemos:
+%
+$$\begin{array}{rcl}
+            1 &=& \arcsen'(\sen(\arcsen s))\sqrt{1-(\sen \arcsen s)^2} \\
+              &=& \arcsen'(s)\sqrt{1-s^2} \\
+  \end{array}
+$$
+%
+e daí:
+%
+$$\arcsen'(s) = \D \frac{1}{\sqrt{1-s^2}}.$$
+
+
+
+
+
+
+% (find-es "ipython" "2020.1-C2-P1")
+% (find-es "ipython" "2020.1-C2-P2")
+% https://en.wikipedia.org/wiki/Inverse_trigonometric_functions#Derivatives_of_inverse_trigonometric_functions
+
+\GenericWarning{Success:}{Success!!!}
+
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C2-P2 veryclean
+make -f 2019.mk STEM=2020-1-C2-P2 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2m201p2"
+% End:

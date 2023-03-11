@@ -1,0 +1,552 @@
+% (find-LATEX "2020-1-C2-TFCs.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C2-TFCs.tex" :end))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C2-TFCs.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C2-TFCs.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C2-TFCs.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C2-TFCs"))
+% (defun v () (interactive) (find-2a '(e) '(d)) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C2-TFCs.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-TFCs.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C2-TFCs.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C2-TFCs.pdf
+%               file:///tmp/2020-1-C2-TFCs.pdf
+%           file:///tmp/pen/2020-1-C2-TFCs.pdf
+% http://angg.twu.net/LATEX/2020-1-C2-TFCs.pdf
+% (find-LATEX "2019.mk")
+
+% «.title»			(to "title")
+% «.formadas-por-segmentos»	(to "formadas-por-segmentos")
+% «.exercicio-1»		(to "exercicio-1")
+% «.exercicio-2»		(to "exercicio-2")
+% «.na-direcao-errada»		(to "na-direcao-errada")
+% «.exercicio-3»		(to "exercicio-3")
+% «.exercicio-4»		(to "exercicio-4")
+% «.exercicio-5»		(to "exercicio-5")
+% «.exercicio-6»		(to "exercicio-6")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+%L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+%L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+\pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+\unitlength=10pt
+
+% (find-angg ".emacs" "c2q192")
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c2m201tfcsp 1 "title")
+% (c2m201tfcs    "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2020.1}
+
+\bsk
+
+Aula 9: TFC1
+
+(o primeiro Teorema Fundamental do Cálculo)
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C2.html}
+
+\end{center}
+
+\newpage
+
+% «formadas-por-segmentos»  (to ".formadas-por-segmentos")
+% (c2m201tfcsp 2 "formadas-por-segmentos")
+% (c2m201tfcs    "formadas-por-segmentos")
+
+{\bf Funções formadas por segmentos}
+
+\ssk
+
+Uma \ColorRed{função escada} é uma função cujo gráfico é formado por
+um número finito de segmentos horizontais e de pontos isolados. Essa
+terminologia é padrão.
+
+Nesta aula vamos usar algumas funções como a abaixo, cujo gráfico é
+formado por um número finito de segmentos {\sl não necessariamente
+  horizontais} e de pontos isolados. Acho que não há um termo padrão
+para funções deste tipo, então vou chamá-las de \ColorRed{funções
+  formadas por segmentos}.
+%
+$$
+ \unitlength=8pt
+ %
+ f(x) \;\; = \;\;
+ \vcenter{\hbox{%
+ \beginpicture(0,-5)(5,5)
+   \pictgrid%
+   \pictpiecewise{(0,0)c--(1,1)c
+                  (1,-1)o--(2,-2)o (2,1)c
+                  (2,2)o--(3,3)c
+                  (3,-3)c--(4,-4)c
+                  (4,4)o--(5,5)c}%
+   \pictaxes%
+ \end{picture}%
+ }}
+$$
+
+\newpage
+
+
+
+% (find-books "__analysis/__analysis.el" "apex-calculus")
+% (find-apexcalculuspage (+ 10 236) "5.4 The Fundamental Theorem of Calculus")
+% (c2m201escadasp 9 "spoiler")
+% (c2m201escadas    "spoiler")
+
+Na aula passada nós conseguimos calcular a função
+%
+$$G(b) = \Intx{1}{b}{g(x)}$$
+
+para a função $g(x)$ abaixo. Obtivemos:
+%
+$$
+ g(x) \;\; = \;\;
+ \vcenter{\hbox{%
+ \beginpicture(0,-2)(10,6)
+   \pictgrid%
+   \pictpiecewise{(0,1)--(2,1)o (2,0)c
+                  (2,2)o--(4,2)o
+                  (4,0)c--(6,0)o
+                  (6,-1)c--(8,-1)c
+                  (8,1)o--(10,1)}%
+   \pictaxes%
+ \end{picture}%
+ }}
+ %
+ \qquad
+ %
+ G(b) \;\; = \;\;
+ \vcenter{\hbox{%
+ \beginpicture(0,-2)(10,6)
+   \pictgrid%
+   \pictpiecewise{(1,0)c--(2,1)c--(4,5)c--(6,5)c--(8,3)c--(10,5)}%
+   \pictaxes%
+ \end{picture}%
+ }}
+$$
+
+\newpage
+
+...e vimos que:
+
+\begin{enumerate}
+
+\item $G(1) = \Intx{1}{1}{g(x)} = 0$.
+
+\item $G'(x) = g(x)$ ``sempre que isto faz sentido'', isto é, para
+  todos os valores de $x$ nos quais $G(x)$ é derivável.
+
+\item $G'(x) = g(x)$ em todo $x$ no qual $g(x)$ é contínua. Isto é uma
+  condição mais forte que a 2.
+
+\item $G(x)$ é contínua --- inclusive nos valores de $x$ nos quais as
+  condições 2 e 3 não se aplicam.
+
+\end{enumerate}
+
+\newpage
+
+% «exercicio-1»  (to ".exercicio-1")
+% (c2m201tfcsp 5 "exercicio-1")
+% (c2m201tfcs    "exercicio-1")
+
+{\bf Exercício 1.}
+
+\ssk
+
+a) Faça uma cópia no papel do gráfico da $g(x)$ do slide 3 e
+represente nele as áreas $\Intx{1}{3}{g(x)}$ e $\Intx{1}{4}{g(x)}$.
+
+b) Agora visualize a diferença $\Intx{1}{4}{g(x)} -
+\Intx{1}{3}{g(x)}$, cancelando na região $\Intx{1}{4}{g(x)}$ a região
+$\Intx{1}{3}{g(x)}$. Represente graficamente esta diferença
+$\Intx{1}{4}{g(x)} - \Intx{1}{3}{g(x)}$ e verifique que ela é
+exatamente a área $\Intx{3}{4}{g(x)}$.
+
+c) Calcule no olhômetro \ColorRed{sem fazer nenhuma conta no papel} o
+valor de cada subexpressão das igualdades abaixo e verifique que as
+duas igualdades são verdade. Lembre que você pode obter $G(3)$ e
+$G(4)$ pelo gráfico da $G$ do slide 3.
+%
+$$\begin{array}{rcl}
+  \Intx{3}{4}{g(x)} &=& \Intx{1}{4}{g(x)} - \Intx{1}{3}{g(x)} \\[5pt]
+                    &=& G(4) - G(3)
+  \end{array}
+$$
+
+\newpage
+
+% «exercicio-2»  (to ".exercicio-2")
+% (c2m201tfcsp 6 "exercicio-2")
+% (c2m201tfcs    "exercicio-2")
+
+{\bf Exercício 2.}
+
+\ssk
+
+Dá pra generalizar o ``$\Intx{3}{4}{g(x)} = G(4) - G(3)$'' do final do
+exercício 1. O caso geral vai ser:
+
+\msk
+
+Se $F(b) = \Intx{a}{b}{f(x)}$ então $\Intx{c}{d}{f(x)} = F(d) - F(c)$,
+
+\msk
+
+e isto vai valer para qualquer função integrável $f$ e quaisquer
+valores de $a$, $c$ e $d$. Isto é um pouco mais difícil de interpretar
+quando a função $f$ assume valores negativos em alguns trechos. Neste
+exercício você vai tentar interpretar isto nas nossas funções $g$ e
+$G$ em alguns casos complicados.
+
+a) Visualize cada subexpressão de 
+%
+$$\begin{array}{rcl}
+  \Intx{7}{8}{g(x)} &=& \Intx{1}{8}{g(x)} - \Intx{1}{7}{g(x)} \\[5pt]
+                    &=& G(8) - G(7)
+  \end{array}
+$$
+
+e descubra como lidar com a parte abaixo do eixo horizontal.
+
+\newpage
+
+% «na-direcao-errada»  (to ".na-direcao-errada")
+% (c2m201tfcsp 7 "na-direcao-errada")
+% (c2m201tfcs    "na-direcao-errada")
+
+{\bf Integrais ``na direção errada''}
+
+\ssk
+
+Até agora nós só lidamos com integrais da forma $\Intx{a}{b}{f(x)}$
+nas quais tínhamos $a≤b$... mas os matemáticos acham estas duas
+propriedades aqui
+
+\msk
+
+1. Se $F(b) = \Intx{a}{b}{f(x)}$ então $\Intx{c}{d}{f(x)} = F(d) - F(c)$
+
+2. $\Intx{a}{c}{f(x)} = \Intx{a}{b}{f(x)} + \Intx{b}{c}{f(x)}$
+
+\msk
+
+TÃO legais que eles decidiram que elas têm que valer sempre... e pra
+elas valerem sempre a gente precisa encontrar o significado ``certo''
+para integrais da forma $\Intx{a}{b}{f(x)}$ onde $a>b$, isto é,
+integrais em que o intervalo de integração está ``expresso na ordem
+errada''.
+
+\newpage
+
+% «exercicio-3»  (to ".exercicio-3")
+% (c2m201tfcsp 8 "exercicio-3")
+% (c2m201tfcs    "exercicio-3")
+
+{\bf Exercício 3.}
+
+\ssk
+
+Descubra o \ColorRed{valor certo} e depois a \ColorRed{interpretação
+  geométrica} da integral ``na direção errada'' em cada uma das
+igualdades abaixo. Obs: ainda estamos usando as funções $g$ e $G$ do
+slide 3.
+
+\msk
+
+a) $\Intx{1}{4}{g(x)} + \Intx{4}{3}{g(x)} = \Intx{1}{3}{g(x)}$
+
+\msk
+
+b) $\Intx{1}{8}{g(x)} + \Intx{8}{7}{g(x)} = \Intx{1}{7}{g(x)}$
+
+\newpage
+
+
+
+Agora leia as duas primeiras seções desta página:
+
+\ssk
+
+{\footnotesize
+% https://pt.wikipedia.org/wiki/Teorema_fundamental_do_c%C3%A1lculo
+\url{https://pt.wikipedia.org/wiki/Teorema_fundamental_do_c\%C3\%A1lculo}
+}
+
+\ssk
+
+e veja a figura da Parte 2 da demonstração.
+
+\msk
+
+Como nós estamos usando principalmente funções formadas por segmentos
+e que podem ser descontínuas nós vamos precisar de uma versão do TFC1
+um pouco mais geral do que a dessa página da Wikipedia.
+
+\msk
+
+Digamos que $f:[a,b]→\R$ seja uma função integrável.
+
+Uma \ColorRed{antiderivada} para $f$ é uma função $F:[a,b]→\R$ tal que
+$F'(x)=f(x)$ em todo $x∈[a,b]$ no qual a $f(x)$ é contínua.
+
+Uma \ColorRed{antiderivada contínua} para $f$ é uma função
+$F:[a,b]→\R$ tal que $F'(x)=f(x)$ em todo $x∈[a,b]$ no qual a $f(x)$ é
+contínua --- e que além disso esta $F$ é \ColorRed{contínua}. Ou seja,
+nos pontos $x$ em que $f(x)$ não é contínua a $F(x)$ não precisa ser
+derivável, mas precisa ser contínua.
+
+\newpage
+
+% «exercicio-4»  (to ".exercicio-4")
+% (c2m201tfcsp 10 "exercicio-4")
+% (c2m201tfcs     "exercicio-4")
+
+
+{\bf Exercício 4.}
+
+Seja $f:[0,5]→\R$ esta função:
+
+$$
+ \unitlength=10pt
+ %
+ f(x) \;\; = \;\;
+ \vcenter{\hbox{%
+ \beginpicture(0,-2)(5,2)
+   \pictgrid%
+   \pictpiecewise{(0,1)c--(2,1)c
+                  (2,-1)o--(5,-1)c}%
+   \pictaxes%
+ \end{picture}%
+ }}
+$$
+
+a) Encontre uma antiderivada contínua para $f$.
+
+b) Encontre uma antiderivada para $f$ que não é contínua.
+
+c) Encontre uma antiderivada contínua para $f$ que
+
+obedeça $F(0)=0$.
+
+d) Encontre uma antiderivada contínua para $f$ que
+
+obedeça $F(1)=0$.
+
+\newpage
+
+A versão do TFC1 que vamos usar é esta aqui:
+
+\bsk
+
+Digamos que $f:[a,c]→\R$ seja integrável.
+
+Seja $F:[a,c]→\R$ \ColorRed{uma} antiderivada contínua de $f$
+
+que obedeça $F(a)=0$.
+
+Seja $G: [a,c] → \R$ a função $G(b) := \Intx{a}{b}{f(x)}$.
+
+\ColorRed{Então as funções $F$ e $G$ são iguais.}
+
+\bsk
+
+Ou seja, dá pra encontrar a função $G(b) := \Intx{a}{b}{f(x)}$
+
+só encontrando uma antiderivada contínua!
+
+Na aula passada nós levamos horas pra encontra a $G$,
+
+mas agora quando a $f$ é uma função escada simples
+
+você deve ser capaz de encontrar uma antiderivada
+
+contínua dela no olhômetro BEM rápido.
+
+
+
+\newpage
+
+% «exercicio-5»  (to ".exercicio-5")
+% (c2m201tfcsp 12 "exercicio-5")
+% (c2m201tfcs     "exercicio-5")
+
+{\bf Exercício 5.}
+
+\ssk
+
+Seja $f:\R→\R$ esta função:
+
+$$
+ \unitlength=10pt
+ %
+ f(x) \;\; = \;\;
+ \vcenter{\hbox{%
+ \beginpicture(0,-2)(6,3)
+   \pictgrid%
+   \pictpiecewise{(0,2)--(2,2)c
+                  (2,1)o--(3,1)c
+                  (3,0)o--(4,0)c
+                  (4,-1)o--(6,-1)}%
+   \pictaxes%
+ \end{picture}%
+ }}
+$$
+
+\msk
+
+Seja $F:\R→\R$ uma antiderivada contínua de $f$
+
+que obedeça $F(1)=0$.
+
+\msk
+
+
+a) Desenhe o gráfico da $F$ \ColorRed{no olhômetro, sem fazer contas}.
+
+\ssk
+
+Agora você tem dois jeitos de calcular $\Intx{1}{6}{f(x)}$,
+
+que tem que dar o mesmo resultado...
+
+\ssk
+
+b) Calcule $\Intx{1}{6}{f(x)}$ pelo gráfico da $f$.
+
+c) Calcule $\Intx{1}{6}{f(x)}$ pelo gráfico da $F$.
+
+
+\newpage
+
+% «exercicio-6»  (to ".exercicio-6")
+% (c2m201tfcsp 13 "exercicio-6")
+% (c2m201tfcs     "exercicio-6")
+
+{\bf Exercício 6.}
+
+\ssk
+
+Seja $f:\R→\R$ a nossa função preferida das primeiras aulas:
+
+$$\begin{array}{rcl}
+  f(x) &=& 4 - (x-2)^2 \\
+       &=& 4 - (x^2 -4x + 4) \\
+       &=& -x^2 +4x \\
+  \end{array}
+$$
+
+a) Encontre uma antiderivada para $f$.
+
+b) Encontre uma antiderivada para $f$
+
+\phantom{!!!!} \ColorRed{que obedeça $F(0)=0$.}
+
+c) Use a sua resposta do item anterior para calcular
+%
+$$\Intx{0}{4}{f(x)}.$$
+
+
+
+
+%\printbibliography
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C2-TFCs veryclean
+make -f 2019.mk STEM=2020-1-C2-TFCs pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2m201tfcs"
+% End:

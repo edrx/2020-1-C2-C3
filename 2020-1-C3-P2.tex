@@ -1,0 +1,348 @@
+% (find-LATEX "2020-1-C3-P2.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2020-1-C3-P2.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2020-1-C3-P2.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2020-1-C3-P2.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2020-1-C3-P2.pdf"))
+% (defun e () (interactive) (find-LATEX "2020-1-C3-P2.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2020-1-C3-P2"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+% (find-pdf-page   "~/LATEX/2020-1-C3-P2.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-P2.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2020-1-C3-P2.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/2020-1-C3-P2.pdf
+%               file:///tmp/2020-1-C3-P2.pdf
+%           file:///tmp/pen/2020-1-C3-P2.pdf
+% http://angg.twu.net/LATEX/2020-1-C3-P2.pdf
+% (find-LATEX "2019.mk")
+% (find-C3-aula-links "2020-1-C3-P2" "p2" "p2")
+
+% «.regras»		(to "regras")
+% «.questao-1»		(to "questao-1")
+% «.questao-2»		(to "questao-2")
+%   «.estudo-de-sinal»	(to "estudo-de-sinal")
+% «.questao-3»		(to "questao-3")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+%\usepackage{colorweb}                 % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-LATEX "edrx15.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[%a6paper, landscape,
+            %paperheight=105mm, paperwidth=148mm,
+            paperheight=105mm, paperwidth=155mm,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+
+\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+\long\def\ColorLong  #1{{\color{Red1}#1}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2020-1-C2.pdf}
+\def\drafturl{http://angg.twu.net/2020.1-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+\setlength{\parindent}{0em}
+\def\T(Total: #1 pts){{\bf(Total: #1 pts)}}
+\def\T(Total: #1 pts){{\bf(Total: #1)}}
+\def\B       (#1 pts){{\bf(#1 pts)}}
+% Usage:
+% 1) \T(Total: 2.34 pts) Foo
+% a) \B(0.45 pts) Bar
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m201p2p 1 "title")
+% (c3m201p2a   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2020.1}
+
+\bsk
+
+P2 (Segunda prova)
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2020.1-C3.html}
+
+\end{center}
+
+\newpage
+
+% «regras»  (to ".regras")
+% (c3m201p2p 2 "regras")
+% (c3m201p2    "regras")
+% (c3m201p1p 2 "regras")
+% (c3m201p1    "regras")
+
+{\bf Regras para a P2:}
+
+\ssk
+
+As questões da P2 serão disponibilizadas às 18:00 da
+quarta-feira 02/dezv/2020 e você deverá entregar as respostas
+\ColorRed{escritas à mão} até as 18:00 da sexta 04/dez/2020 na
+plataforma Classroom. Se o Classroom der algum problema mande também
+para este endereço de e-mail:
+
+
+\ssk
+
+\ColorRed{eduardoochs@gmail.com}
+
+\ssk
+
+Provas entregues após este horário não serão considerados.
+
+Durante as 24 horas do mini-teste o professor não responderá perguntas
+sobre os assuntos do mini-teste, mas você pode discutir com os seus
+colegas... \ColorRed{só que as respostas devem ser individuais}.
+
+\newpage
+
+% «questao-1»  (to ".questao-1")
+% (c3m201p2p 3 "questao-1")
+% (c3m201p2    "questao-1")
+
+{\bf Questão 1}
+
+\T(Total: 5.0 pts)
+
+\ssk
+
+Sejam:
+%
+$$\def\r#1{\ColorRed{\,#1}}
+  \begin{array}{rcl}
+  A &=& \setofxyst{0≤x\r{≤5}, \; 0≤y\r{≤5}, \; d((x,y),(5,5))>5}, \\
+  B &=& \setofxyst{0≤x\r{≤5}, \; 0≤y\r{≤5}, \; d((x,y),(5,5))≥5}, \\
+  F(x,y) &=& d((x,y),(1,2))^2 \\
+         &=& (x-1)^2 + (y-2)^2. \\
+  \end{array}
+$$
+
+
+a) \B(0.5 pts) Represente $A$ graficamente.
+
+b) \B(0.5 pts) Represente $B$ graficamente.
+
+c) \B(1.0 pts) Dos dois conjuntos $A$ e $B$ um é compacto e outro
+não.
+
+Descubra qual é qual e explique porquê.
+
+\newpage
+
+{\bf Questão 1 (continuação)}
+
+\ssk
+
+A partir daqui $C$ é o conjunto compacto do
+
+item anterior e $N$ é o conjunto não compacto.
+
+\msk
+
+d) \B(0.5 pts) Represente graficamente as curvas de nível de $F(x,y)$ em $\R^2$.
+
+e) \B(0.5 pts) Represente graficamente as curvas de nível de $F(x,y)$ em $C$.
+
+f) \B(1.0 pts) Represente graficamente as curvas de nível de $F(x,y)$ em $N$.
+
+(Aqui $N$ é o ``conjunto admissível da $F$''; veja o cap.10 do Bortolossi.)
+
+\msk
+
+g) \B(1.0 pts) Use as curvas de nível pra mostrar que a função $F$
+assume valores positivos arbitrariamente próximos de zero em $N$ mas
+não assume o valor zero em $N$; use isto pra mostrar que esta $F$ não
+tem mínimo global em $N$. Use desenhos e português pra explicar as
+suas idéias.
+
+% (find-books "__analysis/__analysis.el" "bortolossi")
+% (find-bortolossi10page (+ -350 351) "10. Máximos e mínimos de funções de várias variáveis")
+
+
+\newpage
+
+% «questao-2»  (to ".questao-2")
+% (c3m201p2p 5 "questao-2")
+% (c3m201p2    "questao-2")
+
+{\bf Questão 2}
+
+\T(Total: 3.0 pts)
+
+\ssk
+
+Sejam
+%
+$$\begin{array}{rcl}
+         (x_0,y_0) &=& (5,2), \\
+  F(x_0+Δx,y_0+Δx) &=& Δx^2 + ΔxΔy - 6Δy^2, \quad \text{isto é}, \\
+            F(x,y) &=& (x-x_0)^2 + (x-x_0)(y-y_0) - 6(y-y_0)^2, \quad \text{e} \\
+               H_k &=& \setofxyst{y=y_0+k}.
+  \end{array}
+$$
+
+a) \B(0.5 pts) Represente graficamente os conjuntos $H_1, H_{0.1},
+H_0, H_{-0.1}, H_{-1}$.
+
+b) \B(1.0 pts) Faça o ``estudo de sinal'' da função $F$ no conjunto
+$H_1$. Dica:
+
+\ssk
+
+% «estudo-de-sinal»  (to ".estudo-de-sinal")
+{\footnotesize
+\url{http://www.matematica.pucminas.br/profs/web_fabiano/calculo1/sinal.pdf}
+}
+
+\msk
+
+\newpage
+
+{\bf Questão 2 (continuação)}
+
+(Dica: refaça os exercícios da aula 19!)
+
+\ssk
+
+
+
+% (c3m201aprox2aop 6 "exercicio-2")
+% (c3m201aprox2ao    "exercicio-2")
+
+
+c) \B(0.5 pts) Transporte o que você descobriu sobre a $F$ em $H_1$
+para $H_{-1}$.
+
+d) \B(0.5 pts) Transporte o que você descobriu sobre a $F$ em $H_1$
+para $H_{0.1}$.
+
+e) \B(0.5 pts) Esta função $F$ não tem mínimo global em $\R^2$.
+Explique por quê.
+
+\newpage
+
+% «questao-3»  (to ".questao-3")
+% (c3m201p2p 7 "questao-3")
+% (c3m201p2    "questao-3")
+
+{\bf Questão 3}
+
+\T(Total: 3.0 pts)
+
+\ssk
+
+Sejam
+%
+$$\begin{array}{rcl}
+         (x_0,y_0) &=& (5,2), \\
+            F(x,y) &=& (x-x_0)^2 + 4(x-x_0)(y-y_0) + 5 \ColorRed{(y-y_0)^2}, \quad \text{e} \\
+               H_k &=& \setofxyst{y=y_0+k}.
+  \end{array}
+$$
+
+a) \B(0.5 pts) Faça o ``estudo de sinal'' da função $F$ no conjunto
+$H_1$.
+
+b) \B(0.5 pts) Encontre o mínimo global da $F$ em $H_1$.
+
+c) \B(0.5 pts) Transporte o que você descobriu para $H_{-1}$.
+
+d) \B(0.5 pts) Transporte o que você descobriu para $H_{0.1}$.
+
+e) \B(0.5 pts) Encontre o mínimo global da $F$ em $H_0$.
+
+f) \B(0.5 pts) Esta função $F$ tem mínimo global em $\R^2$. Explique
+por quê.
+
+
+
+
+
+\GenericWarning{Success:}{Success!!!}
+
+\end{document}
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2020-1-C3-P2 veryclean
+make -f 2019.mk STEM=2020-1-C3-P2 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3m201p2"
+% End:
