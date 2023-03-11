@@ -21,9 +21,9 @@
 #+OPTIONS: toc:nil num:nil
 
 Este repositório contém a fonte em LaTeX dos slides, testes e provas
-dos meus cursos de Cálculo 2 e Cálculo 3 do semestre 2022.2 da UFF.
+dos meus cursos de Cálculo 2 e Cálculo 3 do semestre 2020.1 da UFF.
 
-Páginas dos cursos (com links pra todos os PDFs e vídeos): [[http://angg.twu.net/2022.2-C2.html][C2]], [[http://angg.twu.net/2022.2-C3.html][C3]].
+Páginas dos cursos (com links pra todos os PDFs e vídeos): [[http://angg.twu.net/2020.1-C2.html][C2]], [[http://angg.twu.net/2020.1-C3.html][C3]].
 
 [[http://angg.twu.net/2021aulas-por-telegram.html][Sobre aulas por Telegram]].
 
