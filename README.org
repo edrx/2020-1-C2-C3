@@ -1,7 +1,7 @@
 # This file:
 #   https://github.com/edrx/2020-1-C2-C3/
-#       http://angg.twu.net/2020-1-C2-C3/README.org.html
-#       http://angg.twu.net/2020-1-C2-C3/README.org
+#        http://anggtwu.net/2020-1-C2-C3/README.org.html
+#        http://anggtwu.net/2020-1-C2-C3/README.org
 #               (find-angg "2020-1-C2-C3/README.org")
 #               (find-angg "2020-1-C2-C3/")
 # Author: Eduardo Ochs <eduardoochs@gmail.com>
@@ -23,11 +23,11 @@
 Este repositório contém a fonte em LaTeX dos slides, testes e provas
 dos meus cursos de Cálculo 2 e Cálculo 3 do semestre 2020.1 da UFF.
 
-Páginas dos cursos (com links pra todos os PDFs e vídeos): [[http://angg.twu.net/2020.1-C2.html][C2]], [[http://angg.twu.net/2020.1-C3.html][C3]].
+Páginas dos cursos (com links pra todos os PDFs e vídeos): [[http://anggtwu.net/2020.1-C2.html][C2]], [[http://anggtwu.net/2020.1-C3.html][C3]].
 
-[[http://angg.twu.net/2021aulas-por-telegram.html][Sobre aulas por Telegram]].
+[[http://anggtwu.net/2021aulas-por-telegram.html][Sobre aulas por Telegram]].
 
-[[http://angg.twu.net/contact.html][Como entrar em contato comigo]].
+[[http://anggtwu.net/contact.html][Como entrar em contato comigo]].
 
 #+begin_src sh
 # Para baixar tudo e compilar
